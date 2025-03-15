@@ -69,9 +69,9 @@
                                 </tbody>
                             </table>
                         </div>
+                        @include('admin.templates.pagination', ['paginator' => $materiGrammars])
                     </div>
                 </div>
-                {!! $materiGrammars->withQueryString()->links() !!}
             </div>
         </div>
     </div>

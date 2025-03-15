@@ -70,9 +70,9 @@
                                 </tbody>
                             </table>
                         </div>
+                        @include('admin.templates.pagination', ['paginator' => $categories])
                     </div>
                 </div>
-                {!! $categories->withQueryString()->links() !!}
             </div>
         </div>
     </div>

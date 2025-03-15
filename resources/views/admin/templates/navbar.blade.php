@@ -8,7 +8,7 @@
 
         <ul class="navbar-nav" id="navbar-nav">
             <li class="nav-item">
-                <a href="{{ url('docs') }}" class="nav-link {{ $current_url == 'docs' ? 'active' : '' }}">
+                <a href="{{ url('admin/dashboard') }}" class="nav-link {{ $current_url == 'admin/dashboard' ? 'active' : '' }}">
                     <i data-feather="home"></i>Dashboard
                 </a>
             </li>
@@ -40,6 +40,45 @@
             </li>
             <li class="nav-item">
                 <a href="{{ url('admin/detail-grammars') }}" class="nav-link {{ $current_url == 'admin/detail-grammars' ? 'active' : '' }}">
+                    <i data-feather="users"></i>Materi
+                </a>
+            </li>
+
+            <li class="menu-title"><span data-key="t-menu">Tenses</span></li>
+
+            <li class="nav-item">
+                <a href="{{ url('admin/tenses') }}" class="nav-link {{ $current_url == 'admin/tenses' ? 'active' : '' }}">
+                    <i data-feather="users"></i>Tenses
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url('admin/detail-tenses') }}" class="nav-link {{ $current_url == 'admin/detail-tenses' ? 'active' : '' }}">
+                    <i data-feather="users"></i>Materi
+                </a>
+            </li>
+
+            <li class="menu-title"><span data-key="t-menu">Kosakata</span></li>
+
+            <li class="nav-item">
+                <a href="{{ url('admin/kosakata') }}" class="nav-link {{ $current_url == 'admin/kosakata' ? 'active' : '' }}">
+                    <i data-feather="users"></i>Kosakata
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url('admin/detail-kosakata') }}" class="nav-link {{ $current_url == 'admin/detail-kosakata' ? 'active' : '' }}">
+                    <i data-feather="users"></i>Materi
+                </a>
+            </li>
+
+            <li class="menu-title"><span data-key="t-menu">Ujian</span></li>
+
+            <li class="nav-item">
+                <a href="{{ url('admin/ujian') }}" class="nav-link {{ $current_url == 'admin/ujian' ? 'active' : '' }}">
+                    <i data-feather="users"></i>Ujian
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url('admin/detail-ujian') }}" class="nav-link {{ $current_url == 'admin/detail-ujian' ? 'active' : '' }}">
                     <i data-feather="users"></i>Materi
                 </a>
             </li>

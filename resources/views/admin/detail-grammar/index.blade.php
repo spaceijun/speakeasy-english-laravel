@@ -77,9 +77,9 @@
                                 </tbody>
                             </table>
                         </div>
+                        @include('admin.templates.pagination', ['paginator' => $detailGrammars])
                     </div>
                 </div>
-                {!! $detailGrammars->withQueryString()->links() !!}
             </div>
         </div>
     </div>

@@ -1,3 +1,4 @@
-<div>
-    <!-- The only way to do great work is to love what you do. - Steve Jobs -->
-</div>
+@extends('admin.templates.header')
+@section('content')
+    <h4 class="card-header">Hello {{ Auth::user()->name}}</h4>
+@endsection

@@ -92,25 +92,4 @@
     }
 </script>
 
-{{-- @push('styles')
-<!-- Tidak diperlukan CSS tambahan untuk CKEditor 5 -->
-@endpush --}}
 
-<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        ClassicEditor
-            .create(document.querySelector('#description'), {
-                toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', '|',
-                    'outdent', 'indent', '|', 'imageUpload', 'blockQuote', 'insertTable', 'mediaEmbed',
-                    'undo', 'redo'
-                ],
-            })
-            .then(editor => {
-                console.log('CKEditor berhasil diinisialisasi', editor);
-            })
-            .catch(error => {
-                console.error('CKEditor error:', error);
-            });
-    });
-</script>
