@@ -2,9 +2,15 @@
     <div class="col-md-12">
 
         <div class="form-group mb-2 mb20">
-            <label for="name" class="form-label">{{ __('Name') }}</label>
-            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                value="{{ old('name', $category?->name) }}" id="name" placeholder="Name">
+            <label for="name" class="form-label">{{ __('Category Name') }}</label>
+            <select name="name" id="name" class="form-select">
+                <option value="Hafalan">Hafalan</option>
+                <option value="Grammar">Grammar</option>
+                <option value="Tenses">Tenses</option>
+                <option value="Kosakata">Kosakata</option>
+                <option value="Ujian">Ujian</option>
+                <option value="Frasa dan Idiom">Frasa dan Idiom</option>
+            </select>
             {!! $errors->first('name', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
         <div class="form-group mb-2 mb20">

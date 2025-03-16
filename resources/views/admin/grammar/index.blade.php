@@ -70,9 +70,9 @@
                                 </tbody>
                             </table>
                         </div>
+                        @include('admin.templates.pagination', ['paginator' => $grammars])
                     </div>
                 </div>
-                {!! $grammars->withQueryString()->links() !!}
             </div>
         </div>
     </div>

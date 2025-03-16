@@ -29,7 +29,7 @@ class GrammarController extends Controller
     public function create(): View
     {
         $grammar = new Grammar();
-        $categories = Category::where('name', 'grammar')->get();
+        $categories = Category::where('name', 'grammar', 'grammars')->get();
         return view('admin.grammar.create', compact('grammar', 'categories'));
     }
 

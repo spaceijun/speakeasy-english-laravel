@@ -5,15 +5,18 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DetailGrammarController;
 use App\Http\Controllers\DetailHafalanController;
+use App\Http\Controllers\DetailTenseController;
 use App\Http\Controllers\GrammarController;
 use App\Http\Controllers\HafalanController;
+use App\Http\Controllers\KosakataController;
 use App\Http\Controllers\MateriGrammarController;
+use App\Http\Controllers\MateriTenseController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TenseController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 Route::get('/dashboard', function () {
@@ -35,6 +38,10 @@ Route::middleware('auth')->group(function () {
         Route::resource('materi-grammars', MateriGrammarController::class);
         // tenses
         Route::resource('tenses', TenseController::class);
+        Route::resource('detail-tenses', DetailTenseController::class);
+        Route::resource('materi-tenses', MateriTenseController::class);
+        // Kosakatas
+        Route::resource('kosakata', KosakataController::class);
     });
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

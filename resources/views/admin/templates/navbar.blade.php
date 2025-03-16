@@ -16,18 +16,18 @@
             <li class="menu-title"><span data-key="t-menu">Category</span></li>
             <li class="nav-item">
                 <a href="{{ url('admin/categories') }}" class="nav-link {{ $current_url == 'admin/categories' ? 'active' : '' }}">
-                    <i data-feather="users"></i>Category
+                    <i data-feather="users"></i>Category<span class="badge badge-pill bg-success" data-key="t-hot">Done</span>
                 </a>
             </li>
             <li class="menu-title"><span data-key="t-menu">Hafalan</span></li>
             <li class="nav-item">
                 <a href="{{ url('admin/hafalans') }}" class="nav-link {{ $current_url == 'admin/hafalans' ? 'active' : '' }}">
-                    <i data-feather="users"></i>Hafalan
+                    <i data-feather="users"></i>Hafalan<span class="badge badge-pill bg-success" data-key="t-hot">Done</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{ url('admin/detail-hafalans') }}" class="nav-link {{ $current_url == 'admin/detail-hafalans' ? 'active' : '' }}">
-                    <i data-feather="users"></i>Materi
+                    <i data-feather="users"></i>Category Materi<span class="badge badge-pill bg-success" data-key="t-hot">Done</span>
                 </a>
             </li>
 
@@ -35,12 +35,12 @@
 
             <li class="nav-item">
                 <a href="{{ url('admin/grammars') }}" class="nav-link {{ $current_url == 'admin/grammars' ? 'active' : '' }}">
-                    <i data-feather="users"></i>Grammar
+                    <i data-feather="users"></i>Grammar<span class="badge badge-pill bg-success" data-key="t-hot">Done</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{ url('admin/detail-grammars') }}" class="nav-link {{ $current_url == 'admin/detail-grammars' ? 'active' : '' }}">
-                    <i data-feather="users"></i>Materi
+                    <i data-feather="users"></i>Category Materi<span class="badge badge-pill bg-success" data-key="t-hot">Done</span>
                 </a>
             </li>
 
@@ -48,12 +48,12 @@
 
             <li class="nav-item">
                 <a href="{{ url('admin/tenses') }}" class="nav-link {{ $current_url == 'admin/tenses' ? 'active' : '' }}">
-                    <i data-feather="users"></i>Tenses
+                    <i data-feather="users"></i>Tenses<span class="badge badge-pill bg-success" data-key="t-hot">Done</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{ url('admin/detail-tenses') }}" class="nav-link {{ $current_url == 'admin/detail-tenses' ? 'active' : '' }}">
-                    <i data-feather="users"></i>Materi
+                    <i data-feather="users"></i>Category Materi<span class="badge badge-pill bg-success" data-key="t-hot">Done</span>
                 </a>
             </li>
 
@@ -61,12 +61,12 @@
 
             <li class="nav-item">
                 <a href="{{ url('admin/kosakata') }}" class="nav-link {{ $current_url == 'admin/kosakata' ? 'active' : '' }}">
-                    <i data-feather="users"></i>Kosakata
+                    <i data-feather="users"></i>Kosakata<span class="badge badge-pill bg-danger" data-key="t-hot">Pending</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{ url('admin/detail-kosakata') }}" class="nav-link {{ $current_url == 'admin/detail-kosakata' ? 'active' : '' }}">
-                    <i data-feather="users"></i>Materi
+                    <i data-feather="users"></i>Category Materi<span class="badge badge-pill bg-danger" data-key="t-hot">Pending</span>
                 </a>
             </li>
 
@@ -74,12 +74,12 @@
 
             <li class="nav-item">
                 <a href="{{ url('admin/ujian') }}" class="nav-link {{ $current_url == 'admin/ujian' ? 'active' : '' }}">
-                    <i data-feather="users"></i>Ujian
+                    <i data-feather="users"></i>Ujian<span class="badge badge-pill bg-danger" data-key="t-hot">Pending</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{ url('admin/detail-ujian') }}" class="nav-link {{ $current_url == 'admin/detail-ujian' ? 'active' : '' }}">
-                    <i data-feather="users"></i>Materi
+                    <i data-feather="users"></i>Category Materi<span class="badge badge-pill bg-danger" data-key="t-hot">Pending</span>
                 </a>
             </li>
 

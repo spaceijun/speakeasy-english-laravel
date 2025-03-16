@@ -1,37 +1,33 @@
 <div class="row padding-1 p-1">
     <div class="col-md-12">
-
+        
         <div class="form-group mb-2 mb20">
-            <label for="detailgram_id" class="form-label">{{ __('Materi Grammar Name') }}</label>
-            <select name="detailgram_id" class="form-control @error('detailgram_id') is-invalid @enderror"
-                id="detailgram_id">
-                <option value="" disabled selected>Choose Materi Grammar</option>
-                @foreach ($availableDetailGrammars as $detailgram)
-                    <option value="{{ $detailgram->id }}"
-                        {{ old('detailgram_id', $materiGrammar->detailgram_id ?? '') == $detailgram->id ? 'selected' : '' }}>
-                        {{ $detailgram->name }}
+            <label for="detail_tenses_id" class="form-label">{{ __('Materi Tenses Name') }}</label>
+            <select name="detail_tenses_id" class="form-control @error('detail_tenses_id') is-invalid @enderror"
+                id="detail_tenses_id">
+                <option value="" disabled selected>Choose Category Tenses</option>
+                @foreach ($availableDetailTenses as $detailtenses)
+                    <option value="{{ $detailtenses->id }}"
+                        {{ old('detail_tenses_id', $materiGrammar->detail_tenses_id ?? '') == $detailtenses->id ? 'selected' : '' }}>
+                        {{ $detailtenses->name }}
                     </option>
                 @endforeach
             </select>
-            @error('detailgram_id')
+            @error('detail_tenses_id')
                 <div class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></div>
             @enderror
         </div>
         <div class="form-group mb-2 mb20">
             <label for="name" class="form-label">{{ __('Name') }}</label>
-            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                value="{{ old('name', $materiGrammar?->name) }}" id="name" placeholder="Name">
+            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name', $materiTense?->name) }}" id="name" placeholder="Name">
             {!! $errors->first('name', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
         <div class="form-group mb-2 mb20">
-            <label for="description" class="form-label">{{ __('Content') }}</label>
-            <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="description"
-                placeholder="Your Content is here" rows="5">{{ old('description', $artikel->description ?? '') }}</textarea>
-            @error('description')
-                <div class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></div>
-            @enderror
+            <label for="description" class="form-label">{{ __('Description') }}</label>
+            <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="descriptionTenses" placeholder="Description">{{ old('description', $materiTense?->description) }}</textarea>
+            {!! $errors->first('description', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
-
+        
     </div>
     <div class="col-md-12 mt20 mt-2">
         <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
@@ -42,7 +38,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         ClassicEditor
-            .create(document.querySelector('#description'), {
+            .create(document.querySelector('#descriptionTenses'), {
                 toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', '|',
                     'outdent', 'indent', '|', 'imageUpload', 'blockQuote', 'insertTable', 'mediaEmbed',
                     'undo', 'redo'
