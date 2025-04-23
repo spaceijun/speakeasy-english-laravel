@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::apiResource('categories', CategoryController::class);
 Route::apiResource('detail-hafalans', DetailHafalanController::class);
 Route::apiResource('grammars', GrammarController::class);
-Route::apiResource('login', AuthenticatedSessionController::class);
-Route::apiResource('register', RegisteredUserController::class);
+// Route::apiResource('login', AuthenticatedSessionController::class);
+// Route::apiResource('register', RegisteredUserController::class);
 // Route::post('register', [AuthController::class, 'register']);
 
 // Route::middleware('auth:sanctum')->group(function () {
@@ -27,14 +27,5 @@ Route::apiResource('register', RegisteredUserController::class);
 //     Route::get('/register', [AuthController::class, 'register']);
 // });
 
-Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/user', function (Request $request) {
-        return response()->json([
-            'status' => true,
-            'message' => 'User data retrieved successfully',
-            'data' => [
-                'user' => $request->user()
-            ]
-        ]);
-    });
-});
+Route::post('login', [AuthController::class, 'login']);
+Route::post('register', [AuthController::class, 'register']);
