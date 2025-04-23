@@ -45,7 +45,7 @@ class HafalanController extends Controller
         if ($request->hasFile('images')) {
             $file = $request->file('images');
             $filename = time() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('assets/hafalan'), $filename);
+            $file->move(storage_path('app/public/assets/hafalan'), $filename);
             $data['images'] = $filename;
         }
 

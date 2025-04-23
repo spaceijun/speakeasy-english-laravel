@@ -47,7 +47,7 @@
 
                                             <td>{{ $hafalan->Category->name }}</td>
                                             <td>{{ $hafalan->name }}</td>
-                                            <td><img src="{{ asset('assets/hafalan/' . $hafalan->images) }}"
+                                            <td><img src="{{ asset('storage/assets/hafalan/' . $hafalan->images) }}" storage
                                                     alt="Current Image" width="100">
                                             </td>
                                             <td>{{ $hafalan->description }}</td>

@@ -43,7 +43,7 @@ class CategoryController extends Controller
         if ($request->hasFile('images')) {
             $file = $request->file('images');
             $filename = time() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('assets/category'), $filename);
+            $file->move(storage_path('app/public/assets/category'), $filename);
             $data['images'] = $filename;
         }
 
