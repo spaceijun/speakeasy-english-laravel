@@ -44,7 +44,7 @@ Categories
                                     <td>{{ ++$i }}</td>
 
                                     <td>{{ $category->name }}</td>
-                                    <td><img src="{{ asset('storage/assets/hafalan/' . $category->images) }}"
+                                    <td><img src="{{ asset('assets/category/' . $category->images) }}"
                                             alt="Current Image" width="100">
                                     </td>
                                     <td>{{ $category->description }}</td>
