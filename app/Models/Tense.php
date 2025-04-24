@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Sanctum\HasApiTokens;
 
 /**
  * Class Tense
@@ -21,7 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Tense extends Model
 {
-    
+    use HasApiTokens;
     protected $perPage = 20;
 
     /**
@@ -39,5 +40,4 @@ class Tense extends Model
     {
         return $this->belongsTo(\App\Models\Category::class, 'category_id', 'id');
     }
-    
 }

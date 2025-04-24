@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Sanctum\HasApiTokens;
 
 /**
  * Class MateriTense
@@ -20,7 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class MateriTense extends Model
 {
-    
+    use HasApiTokens;
     protected $perPage = 20;
 
     /**
@@ -38,5 +39,4 @@ class MateriTense extends Model
     {
         return $this->belongsTo(\App\Models\DetailTense::class, 'detail_tenses_id', 'id');
     }
-    
 }
