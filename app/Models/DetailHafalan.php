@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Sanctum\HasApiTokens;
 
 /**
  * Class DetailHafalan
@@ -20,6 +21,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class DetailHafalan extends Model
 {
+
+    use HasApiTokens;
 
     protected $perPage = 20;
 

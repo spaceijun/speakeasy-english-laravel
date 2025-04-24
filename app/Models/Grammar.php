@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Sanctum\HasApiTokens;
 
 /**
  * Class Grammar
@@ -20,7 +21,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Grammar extends Model
 {
-    
+
+    use HasApiTokens;
+
     protected $perPage = 20;
 
     /**
@@ -38,5 +41,4 @@ class Grammar extends Model
     {
         return $this->belongsTo(\App\Models\Category::class, 'category_id', 'id');
     }
-    
 }
