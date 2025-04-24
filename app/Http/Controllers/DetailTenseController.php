@@ -43,7 +43,7 @@ class DetailTenseController extends Controller
         if ($request->hasFile('images')) {
             $file = $request->file('images');
             $filename = time() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('assets/tenses'), $filename);
+            $file->move('assets/tenses', $filename);
             $data['images'] = $filename;
         }
 

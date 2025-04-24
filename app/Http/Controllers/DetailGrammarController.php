@@ -43,7 +43,7 @@ class DetailGrammarController extends Controller
         if ($request->hasFile('images')) {
             $file = $request->file('images');
             $filename = time() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('assets/grammar'), $filename);
+            $file->move('assets/grammar', $filename);
             $data['images'] = $filename;
         }
 
