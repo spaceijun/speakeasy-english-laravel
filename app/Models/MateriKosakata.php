@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Sanctum\HasApiTokens;
 
 /**
  * Class MateriKosakata
@@ -20,7 +21,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class MateriKosakata extends Model
 {
-    
+    use HasApiTokens;
+
     protected $perPage = 20;
 
     /**
@@ -38,5 +40,4 @@ class MateriKosakata extends Model
     {
         return $this->belongsTo(\App\Models\Kosakata::class, 'kosakatas_id', 'id');
     }
-    
 }

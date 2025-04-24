@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Sanctum\HasApiTokens;
 
 /**
  * Class Kosakata
@@ -22,6 +23,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Kosakata extends Model
 {
+
+    use HasApiTokens;
 
     protected $perPage = 20;
 
