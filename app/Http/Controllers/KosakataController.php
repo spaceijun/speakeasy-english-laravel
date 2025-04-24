@@ -6,6 +6,7 @@ use App\Models\Kosakata;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Requests\KosakataRequest;
+use App\Models\Category;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
@@ -16,7 +17,7 @@ class KosakataController extends Controller
      */
     public function index(Request $request): View
     {
-        $kosakatas = Kosakata::paginate();
+        $kosakatas = Kosakata::with('category')->paginate();
 
         return view('admin.kosakata.index', compact('kosakatas'))
             ->with('i', ($request->input('page', 1) - 1) * $kosakatas->perPage());
@@ -28,8 +29,10 @@ class KosakataController extends Controller
     public function create(): View
     {
         $kosakata = new Kosakata();
+        $categories = Category::where('name', 'kosakata')->get();
 
-        return view('admin.kosakata.create', compact('kosakata'));
+
+        return view('admin.kosakata.create', compact('kosakata', 'categories'));
     }
 
     /**
@@ -37,9 +40,19 @@ class KosakataController extends Controller
      */
     public function store(KosakataRequest $request): RedirectResponse
     {
-        Kosakata::create($request->validated());
+        $data = $request->validated();
 
-        return Redirect::route('kosakatas.index')
+
+        if ($request->hasFile('images')) {
+            $file = $request->file('images');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move('assets/kosakata', $filename);
+            $data['images'] = $filename;
+        }
+
+        Kosakata::create($data);
+
+        return redirect()->route('kosakata.index')
             ->with('success', 'Kosakata created successfully.');
     }
 

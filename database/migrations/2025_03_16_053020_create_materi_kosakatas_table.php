@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('materi_kosakatas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_kosakatas_id')->constrained('category_kosakatas')->onDelete('cascade');
-            $table->string('name');
-            $table->text('description');
-            $table->string('voice');
+            $table->foreignId('kosakatas_id')->constrained('kosakatas')->onDelete('cascade');
+            $table->string('english');
+            $table->text('indonesian');
             $table->timestamps();
         });
     }

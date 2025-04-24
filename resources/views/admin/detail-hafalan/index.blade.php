@@ -33,8 +33,8 @@
                                         <th>No</th>
 
                                         <th>Hafalan Id</th>
-                                        <th>Name</th>
-                                        <th>Translate ID</th>
+                                        <th>English</th>
+                                        <th>Indonesian</th>
 
                                         <th></th>
                                     </tr>

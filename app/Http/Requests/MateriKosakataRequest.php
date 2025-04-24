@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class KosakataRequest extends FormRequest
+class MateriKosakataRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +22,9 @@ class KosakataRequest extends FormRequest
     public function rules(): array
     {
         return [
-			'category_id' => 'required',
-			'name' => 'required|string',
-			'images' => 'required|string',
-			'description' => 'required|string',
+			'kosakatas_id' => 'required',
+			'english' => 'required|string',
+			'indonesian' => 'required|string',
         ];
     }
 }

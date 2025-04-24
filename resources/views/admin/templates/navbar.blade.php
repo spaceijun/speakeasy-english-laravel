@@ -34,23 +34,14 @@
             <li class="menu-title"><span data-key="t-menu">Grammar</span></li>
 
             <li class="nav-item">
-                <a href="{{ url('admin/grammars') }}" class="nav-link {{ $current_url == 'admin/grammars' ? 'active' : '' }}">
-                    <i data-feather="users"></i>Grammar<span class="badge badge-pill bg-success" data-key="t-hot">Done</span>
-                </a>
-            </li>
-            <li class="nav-item">
                 <a href="{{ url('admin/detail-grammars') }}" class="nav-link {{ $current_url == 'admin/detail-grammars' ? 'active' : '' }}">
-                    <i data-feather="users"></i>Category Materi<span class="badge badge-pill bg-success" data-key="t-hot">Done</span>
+                    <i data-feather="users"></i>Gramamar<span class="badge badge-pill bg-success" data-key="t-hot">Done</span>
                 </a>
             </li>
 
             <li class="menu-title"><span data-key="t-menu">Tenses</span></li>
 
-            <li class="nav-item">
-                <a href="{{ url('admin/tenses') }}" class="nav-link {{ $current_url == 'admin/tenses' ? 'active' : '' }}">
-                    <i data-feather="users"></i>Tenses<span class="badge badge-pill bg-success" data-key="t-hot">Done</span>
-                </a>
-            </li>
+
             <li class="nav-item">
                 <a href="{{ url('admin/detail-tenses') }}" class="nav-link {{ $current_url == 'admin/detail-tenses' ? 'active' : '' }}">
                     <i data-feather="users"></i>Category Materi<span class="badge badge-pill bg-success" data-key="t-hot">Done</span>
@@ -61,12 +52,12 @@
 
             <li class="nav-item">
                 <a href="{{ url('admin/kosakata') }}" class="nav-link {{ $current_url == 'admin/kosakata' ? 'active' : '' }}">
-                    <i data-feather="users"></i>Kosakata<span class="badge badge-pill bg-danger" data-key="t-hot">Pending</span>
+                    <i data-feather="users"></i>Kosakata<span class="badge badge-pill bg-success" data-key="t-hot">Done</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ url('admin/detail-kosakata') }}" class="nav-link {{ $current_url == 'admin/detail-kosakata' ? 'active' : '' }}">
-                    <i data-feather="users"></i>Category Materi<span class="badge badge-pill bg-danger" data-key="t-hot">Pending</span>
+                <a href="{{ url('admin/materi-kosakatas') }}" class="nav-link {{ $current_url == 'admin/detail-kosakata' ? 'active' : '' }}">
+                    <i data-feather="users"></i>Category Materi<span class="badge badge-pill bg-success" data-key="t-hot">Done</span>
                 </a>
             </li>
 

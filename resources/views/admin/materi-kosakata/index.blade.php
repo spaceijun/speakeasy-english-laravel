@@ -1,35 +1,30 @@
 @extends('admin.templates.header')
 
 @section('template_title')
-    Kosakata
+    Materi Kosakatas
 @endsection
 
 @section('content')
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
+                @include('admin.templates.messages')
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Kosakata') }}
+                                {{ __('Materi Kosakatas') }}
                             </span>
 
                             <div class="float-right">
-                                <a href="{{ route('kosakata.create') }}" class="btn btn-primary btn-sm float-right"
+                                <a href="{{ route('materi-kosakatas.create') }}" class="btn btn-primary btn-sm float-right"
                                     data-placement="left">
                                     {{ __('Create New') }}
                                 </a>
                             </div>
                         </div>
                     </div>
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success m-4">
-                            <p>{{ $message }}</p>
-                        </div>
-                    @endif
-
                     <div class="card-body bg-white">
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
@@ -37,32 +32,30 @@
                                     <tr>
                                         <th>No</th>
 
-                                        <th>Name</th>
-                                        <th>Images</th>
-                                        <th>Description</th>
+                                        <th>Kosakatas Id</th>
+                                        <th>English</th>
+                                        <th>Indonesian</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($kosakatas as $kosakata)
+                                    @foreach ($materiKosakatas as $materiKosakata)
                                         <tr>
                                             <td>{{ ++$i }}</td>
 
-                                            <td>{{ $kosakata->name }}</td>
-                                            <td><img src="{{ asset('assets/kosakata/' . $kosakata->images) }}"
-                                                    alt="Current Image" width="100">
-                                            </td>
-                                            <td>{{ $kosakata->description }}</td>
+                                            <td>{{ $materiKosakata->kosakata->name }}</td>
+                                            <td>{{ $materiKosakata->english }}</td>
+                                            <td>{{ $materiKosakata->indonesian }}</td>
 
                                             <td>
-                                                <form action="{{ route('kosakata.destroy', $kosakata->id) }}"
+                                                <form action="{{ route('materi-kosakatas.destroy', $materiKosakata->id) }}"
                                                     method="POST">
                                                     <a class="btn btn-sm btn-primary "
-                                                        href="{{ route('kosakata.show', $kosakata->id) }}"><i
+                                                        href="{{ route('materi-kosakatas.show', $materiKosakata->id) }}"><i
                                                             class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
                                                     <a class="btn btn-sm btn-success"
-                                                        href="{{ route('kosakata.edit', $kosakata->id) }}"><i
+                                                        href="{{ route('materi-kosakatas.edit', $materiKosakata->id) }}"><i
                                                             class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
@@ -76,9 +69,9 @@
                                 </tbody>
                             </table>
                         </div>
-                        @include('admin.templates.pagination', ['paginator' => $kosakatas])
                     </div>
                 </div>
+                {!! $materiKosakatas->withQueryString()->links() !!}
             </div>
         </div>
     </div>

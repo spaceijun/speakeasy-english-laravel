@@ -10,6 +10,7 @@ use App\Http\Controllers\GrammarController;
 use App\Http\Controllers\HafalanController;
 use App\Http\Controllers\KosakataController;
 use App\Http\Controllers\MateriGrammarController;
+use App\Http\Controllers\MateriKosakataController;
 use App\Http\Controllers\MateriTenseController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TenseController;
@@ -42,6 +43,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('materi-tenses', MateriTenseController::class);
         // Kosakatas
         Route::resource('kosakata', KosakataController::class);
+        Route::resource('materi-kosakatas', MateriKosakataController::class);
     });
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
