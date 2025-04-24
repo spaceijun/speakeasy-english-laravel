@@ -49,7 +49,7 @@ class DetailGrammarController extends Controller
 
         DetailGrammar::create($data);
 
-        return redirect()->route('detial-grammars.index')
+        return redirect()->route('detail-grammars.index')
             ->with('success', 'Materi Grammar created successfully.');
     }
 
