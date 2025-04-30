@@ -17,7 +17,7 @@ class MateriTenseController extends Controller
      */
     public function index(Request $request)
     {
-        $materiTenses = MateriTense::paginate();
+        $materiTenses = MateriTense::all();
 
         return MateriTenseResource::collection($materiTenses);
     }

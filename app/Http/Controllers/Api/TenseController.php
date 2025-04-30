@@ -17,7 +17,7 @@ class TenseController extends Controller
      */
     public function index(Request $request)
     {
-        $tenses = Tense::paginate();
+        $tenses = Tense::all();
 
         return TenseResource::collection($tenses);
     }

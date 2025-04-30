@@ -60,6 +60,33 @@
                     <i data-feather="users"></i>Category Materi<span class="badge badge-pill bg-success" data-key="t-hot">Done</span>
                 </a>
             </li>
+            <li class="menu-title"><span data-key="t-menu">Frasa</span></li>
+
+            <li class="nav-item">
+                <a href="{{ url('admin/frasas') }}" class="nav-link {{ $current_url == 'admin/frasas' ? 'active' : '' }}">
+                    <i data-feather="users"></i>Frasa<span class="badge badge-pill bg-danger" data-key="t-hot">Pending</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url('admin/detail-frasas') }}" class="nav-link {{ $current_url == 'admin/detail-frasas' ? 'active' : '' }}">
+                    <i data-feather="users"></i>Category Materi<span class="badge badge-pill bg-danger" data-key="t-hot">Pending</span>
+                </a>
+            </li>
+
+            <li class="menu-title"><span data-key="t-menu">Idiom</span></li>
+
+            <li class="nav-item">
+                <a href="{{ url('admin/idioms') }}" class="nav-link {{ $current_url == 'admin/idioms' ? 'active' : '' }}">
+                    <i data-feather="users"></i>Idiom<span class="badge badge-pill bg-danger" data-key="t-hot">Pending</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url('admin/detail-idioms') }}" class="nav-link {{ $current_url == 'admin/detail-idioms' ? 'active' : '' }}">
+                    <i data-feather="users"></i>Category Materi<span class="badge badge-pill bg-danger" data-key="t-hot">Pending</span>
+                </a>
+            </li>
+
+
 
             <li class="menu-title"><span data-key="t-menu">Ujian</span></li>
 

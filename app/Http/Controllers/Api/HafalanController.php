@@ -17,7 +17,7 @@ class HafalanController extends Controller
      */
     public function index(Request $request)
     {
-        $hafalans = Hafalan::paginate();
+        $hafalans = Hafalan::all();
 
         return HafalanResource::collection($hafalans);
     }

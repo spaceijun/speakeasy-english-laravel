@@ -9,7 +9,8 @@
                 <option value="Tenses">Tenses</option>
                 <option value="Kosakata">Kosakata</option>
                 <option value="Ujian">Ujian</option>
-                <option value="Frasa dan Idiom">Frasa dan Idiom</option>
+                <option value="Frasa">Frasa</option>\
+                <option value="Idiom">Idiom</option>
             </select>
             {!! $errors->first('name', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>

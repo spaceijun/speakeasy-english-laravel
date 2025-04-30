@@ -2,11 +2,15 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\DetailFrasaController;
 use App\Http\Controllers\Api\DetailGrammarController;
 use App\Http\Controllers\Api\DetailHafalanController;
+use App\Http\Controllers\Api\DetailIdiomController;
 use App\Http\Controllers\Api\DetailTenseController;
+use App\Http\Controllers\Api\FrasaController;
 use App\Http\Controllers\Api\GrammarController;
 use App\Http\Controllers\Api\HafalanController;
+use App\Http\Controllers\Api\IdiomController;
 use App\Http\Controllers\Api\KosakataController;
 use App\Http\Controllers\Api\MateriGrammarController;
 use App\Http\Controllers\Api\MateriKosakataController;
@@ -32,6 +36,12 @@ Route::apiResource('detail-grammars', DetailGrammarController::class);
 Route::apiResource('materi-grammars', MateriGrammarController::class);
 Route::apiResource('kosakatas', KosakataController::class);
 Route::apiResource('materi-kosakatas', MateriKosakataController::class);
+// frasa
+Route::apiResource('frasas', FrasaController::class);
+Route::apiResource('detail-frasas', DetailFrasaController::class);
+// idioms
+Route::apiResource('idioms', IdiomController::class);
+Route::apiResource('detail-idioms', DetailIdiomController::class);
 // Route::apiResource('login', AuthenticatedSessionController::class);
 // Route::apiResource('register', RegisteredUserController::class);
 // Route::post('register', [AuthController::class, 'register']);

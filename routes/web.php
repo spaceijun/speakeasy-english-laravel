@@ -3,11 +3,15 @@
 use App\Http\Controllers\Api\DocsController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DetailFrasaController;
 use App\Http\Controllers\DetailGrammarController;
 use App\Http\Controllers\DetailHafalanController;
+use App\Http\Controllers\DetailIdiomController;
 use App\Http\Controllers\DetailTenseController;
+use App\Http\Controllers\FrasaController;
 use App\Http\Controllers\GrammarController;
 use App\Http\Controllers\HafalanController;
+use App\Http\Controllers\IdiomController;
 use App\Http\Controllers\KosakataController;
 use App\Http\Controllers\MateriGrammarController;
 use App\Http\Controllers\MateriKosakataController;
@@ -44,6 +48,12 @@ Route::middleware('auth')->group(function () {
         // Kosakatas
         Route::resource('kosakata', KosakataController::class);
         Route::resource('materi-kosakatas', MateriKosakataController::class);
+        // frasa
+        Route::resource('frasas', FrasaController::class);
+        Route::resource('detail-frasas', DetailFrasaController::class);
+        // Idiom
+        Route::resource('idioms', IdiomController::class);
+        Route::resource('detail-idioms', DetailIdiomController::class);
     });
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

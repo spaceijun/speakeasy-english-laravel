@@ -41,7 +41,7 @@ return [
     | layout = false or layout = null will not create the layout files.
     */
 
-    'layout' => 'layouts.app',
+    'layout' => 'admin.templates.header',
 
     'model' => [
         'namespace' => 'App\Models',
