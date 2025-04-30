@@ -17,7 +17,7 @@ class DetailHafalanController extends Controller
      */
     public function index(Request $request)
     {
-        $detailHafalans = DetailHafalan::paginate();
+        $detailHafalans = DetailHafalan::all();
 
         return DetailHafalanResource::collection($detailHafalans);
     }

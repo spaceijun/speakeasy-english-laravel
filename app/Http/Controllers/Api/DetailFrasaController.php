@@ -17,7 +17,7 @@ class DetailFrasaController extends Controller
      */
     public function index(Request $request)
     {
-        $detailFrasas = DetailFrasa::paginate();
+        $detailFrasas = DetailFrasa::all();
 
         return DetailFrasaResource::collection($detailFrasas);
     }

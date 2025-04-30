@@ -17,7 +17,7 @@ class DetailIdiomController extends Controller
      */
     public function index(Request $request)
     {
-        $detailIdioms = DetailIdiom::paginate();
+        $detailIdioms = DetailIdiom::all();
 
         return DetailIdiomResource::collection($detailIdioms);
     }
