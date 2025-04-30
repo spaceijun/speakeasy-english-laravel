@@ -12,12 +12,14 @@ use App\Http\Controllers\FrasaController;
 use App\Http\Controllers\GrammarController;
 use App\Http\Controllers\HafalanController;
 use App\Http\Controllers\IdiomController;
+use App\Http\Controllers\JawabanHafalanController;
 use App\Http\Controllers\KosakataController;
 use App\Http\Controllers\MateriGrammarController;
 use App\Http\Controllers\MateriKosakataController;
 use App\Http\Controllers\MateriTenseController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TenseController;
+use App\Http\Controllers\TugasHafalanController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -37,6 +39,8 @@ Route::middleware('auth')->group(function () {
         // Hafalan
         Route::resource('hafalans', HafalanController::class);
         Route::resource('detail-hafalans', DetailHafalanController::class);
+        Route::resource('tugas-hafalans', TugasHafalanController::class);
+        Route::resource('jawaban-hafalans', JawabanHafalanController::class);
         // Grammars
         Route::resource('grammars', GrammarController::class);
         Route::resource('detail-grammars', DetailGrammarController::class);
