@@ -81,7 +81,10 @@ return [
      * ],
      * ```
      */
-    'servers' => null,
+    'servers' => [
+        'Live' => 'api',
+        'Prod' => 'https://speakeasy.web.id/docs/api',
+    ],
 
     'middleware' => [
         'web',
