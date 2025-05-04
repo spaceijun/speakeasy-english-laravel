@@ -66,11 +66,34 @@ Route::post('logout', [AuthController::class, 'logout']);
  * Routes API Jawaban
  */
 
-//  Hafalan
-Route::get('jawaban-hafalans', [JawabanHafalanController::class, 'index'])->name('jawaban.hafalan.index');
-Route::get('jawaban-hafalans/create/{tugas_hafalan_id}', [JawabanHafalanController::class, 'create'])->name('jawaban.hafalan.create');
-Route::get('jawaban-hafalans/edit/{tugas_hafalan_id}', [JawabanHafalanController::class, 'edit'])->name('jawaban.hafalan.edit');
-Route::get('jawaban-hafalans/show/{jawabanHafalan}', [JawabanHafalanController::class, 'show'])->name('jawaban.hafalan.show');
-Route::post('jawaban-hafalans/store/{tugas_hafalan_id}', [JawabanHafalanController::class, 'store'])->name('jawaban.hafalan.store');
-Route::put('jawaban-hafalan/update/{jawabanHafalan}', [JawabanHafalanController::class, 'update'])->name('jawaban.hafalan.update');
-Route::delete('jawaban-hafalans/destroy/{tugas_hafalan_id}', [JawabanHafalanController::class, 'destroy'])->name('jawaban.hafalan.destroy');
+Route::prefix('api')->group(function () {
+    // You may want to add middleware for authentication
+    // Route::middleware('auth:sanctum')->group(function () {
+
+    // JawabanHafalan routes
+    Route::prefix('jawaban-hafalan')->group(function () {
+        // List all jawaban hafalan
+        Route::get('/', [JawabanHafalanController::class, 'apiIndex']);
+
+        // Get a specific jawaban hafalan
+        Route::get('/{id}', [JawabanHafalanController::class, 'apiShow']);
+
+        // Create a new jawaban hafalan
+        Route::post('/', [JawabanHafalanController::class, 'apiStore']);
+
+        // Update a jawaban hafalan
+        Route::put('/{id}', [JawabanHafalanController::class, 'apiUpdate']);
+        Route::patch('/{id}', [JawabanHafalanController::class, 'apiUpdate']);
+
+        // Delete a jawaban hafalan
+        Route::delete('/{id}', [JawabanHafalanController::class, 'apiDestroy']);
+
+        // Get jawaban hafalan by tugas hafalan ID
+        Route::get('/by-tugas/{tugas_hafalan_id}', [JawabanHafalanController::class, 'apiGetByTugasHafalan']);
+
+        // Get jawaban hafalan by user ID
+        Route::get('/by-user/{user_id}', [JawabanHafalanController::class, 'apiGetByUser']);
+    });
+
+    // });  // End of auth middleware
+});
