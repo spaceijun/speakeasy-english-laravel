@@ -70,7 +70,7 @@ Route::post('logout', [AuthController::class, 'logout']);
 Route::get('jawaban-hafalans', [JawabanHafalanController::class, 'index'])->name('jawaban.hafalan.index');
 Route::get('jawaban-hafalans/create/{tugas_hafalan_id}', [JawabanHafalanController::class, 'create'])->name('jawaban.hafalan.create');
 Route::get('jawaban-hafalans/edit/{tugas_hafalan_id}', [JawabanHafalanController::class, 'edit'])->name('jawaban.hafalan.edit');
-Route::get('jawaban-hafalans/show/{id}', [JawabanHafalanController::class, 'show'])->name('jawaban.hafalan.show');
+Route::get('jawaban-hafalans/show/{jawabanHafalan}', [JawabanHafalanController::class, 'show'])->name('jawaban.hafalan.show');
 Route::post('jawaban-hafalans/store/{tugas_hafalan_id}', [JawabanHafalanController::class, 'store'])->name('jawaban.hafalan.store');
 Route::put('jawaban-hafalan/update/{jawabanHafalan}', [JawabanHafalanController::class, 'update'])->name('jawaban.hafalan.update');
 Route::delete('jawaban-hafalans/destroy/{tugas_hafalan_id}', [JawabanHafalanController::class, 'destroy'])->name('jawaban.hafalan.destroy');
