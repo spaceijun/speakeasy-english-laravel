@@ -69,6 +69,8 @@ Route::post('logout', [AuthController::class, 'logout']);
 Route::prefix('jawaban-hafalan')->group(function () {
     // List all jawaban hafalan
     Route::get('/', [JawabanHafalanController::class, 'apiIndex']);
+    // Show form create
+    Route::get('/create/{tugas_hafalan_id}', [JawabanHafalanController::class, 'create']);
     // Get a specific jawaban hafalan
     Route::get('/{id}', [JawabanHafalanController::class, 'apiShow']);
     // Create a new jawaban hafalan

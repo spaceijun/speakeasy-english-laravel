@@ -29,7 +29,7 @@ class JawabanHafalanController extends Controller
     {
         $perPage = $request->input();
         $jawabanHafalans = JawabanHafalan::with('tugasHafalan', 'user')
-            ->paginate($perPage);
+            ->get();
 
         return response()->json([
             'status' => 'success',
