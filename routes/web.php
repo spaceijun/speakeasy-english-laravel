@@ -40,7 +40,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('hafalans', HafalanController::class);
         Route::resource('detail-hafalans', DetailHafalanController::class);
         Route::resource('tugas-hafalans', TugasHafalanController::class);
-        Route::resource('jawaban-hafalans', JawabanHafalanController::class);
+        // Route::resource('jawaban-hafalans', JawabanHafalanController::class);
         // Grammars
         Route::resource('grammars', GrammarController::class);
         Route::resource('detail-grammars', DetailGrammarController::class);
@@ -58,6 +58,19 @@ Route::middleware('auth')->group(function () {
         // Idiom
         Route::resource('idioms', IdiomController::class);
         Route::resource('detail-idioms', DetailIdiomController::class);
+
+        /**
+         * Route for all answers
+         */
+
+        //  Hafalan Answer
+        Route::get('jawaban-hafalans', [JawabanHafalanController::class, 'index'])->name('jawaban.hafalan.index');
+        Route::get('jawaban-hafalans/create/{tugas_hafalan_id}', [JawabanHafalanController::class, 'create'])->name('jawaban.hafalan.create');
+        Route::get('jawaban-hafalans/edit/{tugas_hafalan_id}', [JawabanHafalanController::class, 'edit'])->name('jawaban.hafalan.edit');
+        Route::get('jawaban-hafalans/show/{id}', [JawabanHafalanController::class, 'show'])->name('jawaban.hafalan.show');
+        Route::post('jawaban-hafalans/store/{tugas_hafalan_id}', [JawabanHafalanController::class, 'store'])->name('jawaban.hafalan.store');
+        Route::put('jawaban-hafalan/update/{jawabanHafalan}', [JawabanHafalanController::class, 'update'])->name('jawaban.hafalan.update');
+        Route::delete('jawaban-hafalans/destroy/{tugas_hafalan_id}', [JawabanHafalanController::class, 'destroy'])->name('jawaban.hafalan.destroy');
     });
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

@@ -6,6 +6,7 @@ use App\Models\TugasHafalan;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Requests\TugasHafalanRequest;
+use App\Models\Hafalan;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
@@ -18,7 +19,7 @@ class TugasHafalanController extends Controller
     {
         $tugasHafalans = TugasHafalan::with('hafalan')->paginate();
 
-        return view('tugas-hafalan.index', compact('tugasHafalans'))
+        return view('admin.hafalan.tugas-hafalan.index', compact('tugasHafalans'))
             ->with('i', ($request->input('page', 1) - 1) * $tugasHafalans->perPage());
     }
 
@@ -28,8 +29,9 @@ class TugasHafalanController extends Controller
     public function create(): View
     {
         $tugasHafalan = new TugasHafalan();
+        $hafalans = Hafalan::all();
 
-        return view('tugas-hafalan.create', compact('tugasHafalan'));
+        return view('admin.hafalan.tugas-hafalan.create', compact('tugasHafalan', 'hafalans'));
     }
 
     /**
@@ -50,7 +52,7 @@ class TugasHafalanController extends Controller
     {
         $tugasHafalan = TugasHafalan::find($id);
 
-        return view('tugas-hafalan.show', compact('tugasHafalan'));
+        return view('admin.hafalan.tugas-hafalan.show', compact('tugasHafalan'));
     }
 
     /**
@@ -60,7 +62,7 @@ class TugasHafalanController extends Controller
     {
         $tugasHafalan = TugasHafalan::find($id);
 
-        return view('tugas-hafalan.edit', compact('tugasHafalan'));
+        return view('admin.hafalan.tugas-hafalan.edit', compact('tugasHafalan'));
     }
 
     /**

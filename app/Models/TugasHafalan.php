@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
 /**
  * Class TugasHafalan
@@ -21,6 +23,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TugasHafalan extends Model
 {
+
+    use Notifiable, HasApiTokens;
 
     protected $perPage = 20;
 

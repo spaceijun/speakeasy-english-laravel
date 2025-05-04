@@ -16,20 +16,20 @@ class JawabanHafalanController extends Controller
      */
     public function index(Request $request): View
     {
-        $jawabanHafalans = JawabanHafalan::paginate();
+        $jawabanHafalans = JawabanHafalan::with('tugasHafalan', 'user')->paginate();
 
-        return view('jawaban-hafalan.index', compact('jawabanHafalans'))
+        return view('admin.hafalan.jawaban-hafalan.index', compact('jawabanHafalans'))
             ->with('i', ($request->input('page', 1) - 1) * $jawabanHafalans->perPage());
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): View
+    public function create($tugas_hafalan_id): View
     {
-        $jawabanHafalan = new JawabanHafalan();
+        $jawabanHafalan = new JawabanHafalan(['tugas_hafalan_id' => $tugas_hafalan_id]);
 
-        return view('jawaban-hafalan.create', compact('jawabanHafalan'));
+        return view('admin.hafalan.jawaban-hafalan.create', compact('jawabanHafalan'));
     }
 
     /**
@@ -39,7 +39,7 @@ class JawabanHafalanController extends Controller
     {
         JawabanHafalan::create($request->validated());
 
-        return Redirect::route('jawaban-hafalans.index')
+        return Redirect::route('jawaban.hafalan.index')
             ->with('success', 'JawabanHafalan created successfully.');
     }
 
@@ -50,7 +50,7 @@ class JawabanHafalanController extends Controller
     {
         $jawabanHafalan = JawabanHafalan::find($id);
 
-        return view('jawaban-hafalan.show', compact('jawabanHafalan'));
+        return view('admin.hafalan.jawaban-hafalan.show', compact('jawabanHafalan'));
     }
 
     /**
@@ -60,7 +60,7 @@ class JawabanHafalanController extends Controller
     {
         $jawabanHafalan = JawabanHafalan::find($id);
 
-        return view('jawaban-hafalan.edit', compact('jawabanHafalan'));
+        return view('jawaban.hafalan.edit', compact('jawabanHafalan'));
     }
 
     /**
@@ -69,8 +69,13 @@ class JawabanHafalanController extends Controller
     public function update(JawabanHafalanRequest $request, JawabanHafalan $jawabanHafalan): RedirectResponse
     {
         $jawabanHafalan->update($request->validated());
+        $jawabanHafalan->update($request->all());
 
-        return Redirect::route('jawaban-hafalans.index')
+        // set status
+        $jawabanHafalan->status = "Sudah Dikoreksi";
+        $jawabanHafalan->save();
+
+        return Redirect::route('jawaban.hafalan.index')
             ->with('success', 'JawabanHafalan updated successfully');
     }
 
@@ -78,7 +83,7 @@ class JawabanHafalanController extends Controller
     {
         JawabanHafalan::find($id)->delete();
 
-        return Redirect::route('jawaban-hafalans.index')
+        return Redirect::route('jawaban.hafalans.index')
             ->with('success', 'JawabanHafalan deleted successfully');
     }
 }

@@ -25,8 +25,8 @@ class JawabanHafalanRequest extends FormRequest
 			'user_id' => 'required',
 			'tugas_hafalan_id' => 'required',
 			'body_answers' => 'required|string',
-			'nilai' => 'string',
-			'status' => 'required',
+			// 'nilai' => 'string',
+			// 'status' => 'required',
         ];
     }
 }

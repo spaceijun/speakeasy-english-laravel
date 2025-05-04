@@ -14,10 +14,10 @@
                         <span class="card-title">{{ __('Create') }} Jawaban Hafalan</span>
                     </div>
                     <div class="card-body bg-white">
-                        <form method="POST" action="{{ route('jawaban-hafalans.store') }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('jawaban.hafalan.store', $jawabanHafalan->tugas_hafalan_id) }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
-                            @include('jawaban-hafalan.form')
+                            @include('admin.hafalan.jawaban-hafalan.form')
 
                         </form>
                     </div>

@@ -33,9 +33,9 @@
                                     <tr>
                                         <th>No</th>
 
-                                        <th>Hafalan Id</th>
-                                        <th>Kkm</th>
-                                        <th>Body Questions</th>
+                                        <th>Hafalan</th>
+                                        <th>KKM</th>
+                                        <th>Question</th>
 
                                         <th></th>
                                     </tr>
@@ -53,8 +53,8 @@
                                                 <form action="{{ route('tugas-hafalans.destroy', $tugasHafalan->id) }}"
                                                     method="POST">
                                                     <a class="btn btn-sm btn-primary "
-                                                        href="{{ route('tugas-hafalans.show', $tugasHafalan->id) }}"><i
-                                                            class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                        href="{{ route('jawaban.hafalan.create', $tugasHafalan->id) }}"><i
+                                                            class="fa fa-fw fa-eye"></i> {{ __('Add Answers') }}</a>
                                                     <a class="btn btn-sm btn-success"
                                                         href="{{ route('tugas-hafalans.edit', $tugasHafalan->id) }}"><i
                                                             class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
@@ -70,7 +70,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        @include('admin.templates.pagination', ['paginator' => $detailFrasas])
+                        @include('admin.templates.pagination', ['paginator' => $tugasHafalans])
                     </div>
                 </div>
             </div>

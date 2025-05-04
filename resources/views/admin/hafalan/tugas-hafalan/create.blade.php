@@ -17,7 +17,7 @@
                         <form method="POST" action="{{ route('tugas-hafalans.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
-                            @include('tugas-hafalan.form')
+                            @include('admin.hafalan.tugas-hafalan.form')
 
                         </form>
                     </div>

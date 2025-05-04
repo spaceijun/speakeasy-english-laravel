@@ -35,6 +35,12 @@
                     <i data-feather="users"></i>Tugas Hafalan<span class="badge badge-pill bg-success" data-key="t-hot">Done</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ url('admin/jawaban-hafalans') }}" class="nav-link {{ $current_url == 'admin/jawaban-hafalans' ? 'active' : '' }}">
+                    <i data-feather="users"></i>Jawaban Hafalan<span class="badge badge-pill bg-success" data-key="t-hot">Done</span>
+                </a>
+            </li>
+
 
 
             <li class="menu-title"><span data-key="t-menu">Grammar</span></li>

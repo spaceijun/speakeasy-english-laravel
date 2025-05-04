@@ -81,11 +81,7 @@ return [
      * ],
      * ```
      */
-    'servers' => [
-        'Live' => 'api',
-        'Prod' => 'https://speakeasy.web.id/docs/api',
-    ],
-
+    'servers' => null,
     'middleware' => [
         'web',
         RestrictedDocsAccess::class,
