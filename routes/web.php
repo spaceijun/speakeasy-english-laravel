@@ -12,6 +12,7 @@ use App\Http\Controllers\FrasaController;
 use App\Http\Controllers\GrammarController;
 use App\Http\Controllers\HafalanController;
 use App\Http\Controllers\IdiomController;
+use App\Http\Controllers\JawabanFrasaController;
 use App\Http\Controllers\JawabanHafalanController;
 use App\Http\Controllers\KosakataController;
 use App\Http\Controllers\MateriGrammarController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\MateriKosakataController;
 use App\Http\Controllers\MateriTenseController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TenseController;
+use App\Http\Controllers\TugasFrasaController;
 use App\Http\Controllers\TugasHafalanController;
 use Illuminate\Support\Facades\Route;
 
@@ -55,6 +57,7 @@ Route::middleware('auth')->group(function () {
         // frasa
         Route::resource('frasas', FrasaController::class);
         Route::resource('detail-frasas', DetailFrasaController::class);
+        Route::resource('tugas-frasas', TugasFrasaController::class);
         // Idiom
         Route::resource('idioms', IdiomController::class);
         Route::resource('detail-idioms', DetailIdiomController::class);
@@ -71,6 +74,14 @@ Route::middleware('auth')->group(function () {
         Route::post('jawaban-hafalans/store/{tugas_hafalan_id}', [JawabanHafalanController::class, 'store'])->name('jawaban.hafalan.store');
         Route::put('jawaban-hafalan/update/{jawabanHafalan}', [JawabanHafalanController::class, 'update'])->name('jawaban.hafalan.update');
         Route::delete('jawaban-hafalans/destroy/{tugas_hafalan_id}', [JawabanHafalanController::class, 'destroy'])->name('jawaban.hafalan.destroy');
+        // Frasas Answer
+        Route::get('jawaban-frasas', [JawabanFrasaController::class, 'index'])->name('jawaban.frasa.index');
+        Route::get('jawaban-frasas/create/{tugas_frasa_id}', [JawabanFrasaController::class, 'create'])->name('jawaban.frasa.create');
+        Route::get('jawaban-frasas/edit/{tugas_frasa_id}', [JawabanFrasaController::class, 'edit'])->name('jawaban.frasa.edit');
+        Route::get('jawaban-frasas/show/{id}', [JawabanFrasaController::class, 'show'])->name('jawaban.frasa.show');
+        Route::post('jawaban-frasas/store/{tugas_frasa_id}', [JawabanFrasaController::class, 'store'])->name('jawaban.frasa.store');
+        Route::put('jawaban-frasa/update/{jawabanFrasa}', [JawabanFrasaController::class, 'update'])->name('jawaban.frasa.update');
+        Route::delete('jawaban-frasas/destroy/{tugas_frasa_id}', [JawabanFrasaController::class, 'destroy'])->name('jawaban.frasa.destroy');
     });
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

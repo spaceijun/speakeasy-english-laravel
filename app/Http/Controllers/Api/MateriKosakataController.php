@@ -17,7 +17,7 @@ class MateriKosakataController extends Controller
      */
     public function index(Request $request)
     {
-        $materiKosakatas = MateriKosakata::paginate();
+        $materiKosakatas = MateriKosakata::all();
 
         return MateriKosakataResource::collection($materiKosakatas);
     }
