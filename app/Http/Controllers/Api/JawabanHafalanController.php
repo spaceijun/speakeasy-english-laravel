@@ -17,7 +17,7 @@ class JawabanHafalanController extends Controller
      */
     public function index(Request $request)
     {
-        $jawabanHafalans = JawabanHafalan::paginate();
+        $jawabanHafalans = JawabanHafalan::all();
 
         return JawabanHafalanResource::collection($jawabanHafalans);
     }
@@ -48,6 +48,16 @@ class JawabanHafalanController extends Controller
         $jawabanHafalan->update($request->validated());
 
         return response()->json(new JawabanHafalanResource($jawabanHafalan));
+    }
+
+    /**
+     * Display a listing of the resource filtered by user.
+     */
+    public function getByUser(Request $request, $userId): JsonResponse
+    {
+        $jawabanHafalans = JawabanHafalan::where('user_id', $userId)->get();
+
+        return response()->json(JawabanHafalanResource::collection($jawabanHafalans));
     }
 
     /**

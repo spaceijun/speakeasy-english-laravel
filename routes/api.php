@@ -33,6 +33,8 @@ Route::apiResource('detail-hafalans', DetailHafalanController::class);
 Route::apiResource('hafalans', HafalanController::class);
 Route::apiResource('tugas-hafalans', TugasHafalanController::class);
 Route::apiResource('jawaban-hafalans', JawabanHafalanController::class);
+Route::get('jawaban-hafalan/user/{userId}', [JawabanHafalanController::class, 'getByUser']);
+
 // Grammar
 Route::apiResource('grammars', GrammarController::class);
 Route::apiResource('tenses', TenseController::class);
