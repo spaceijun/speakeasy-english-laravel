@@ -32,6 +32,7 @@ Route::apiResource('categories', CategoryController::class);
 Route::apiResource('detail-hafalans', DetailHafalanController::class);
 Route::apiResource('hafalans', HafalanController::class);
 Route::apiResource('tugas-hafalans', TugasHafalanController::class);
+Route::apiResource('jawaban-hafalans', JawabanHafalanController::class);
 // Grammar
 Route::apiResource('grammars', GrammarController::class);
 Route::apiResource('tenses', TenseController::class);
@@ -66,22 +67,22 @@ Route::post('logout', [AuthController::class, 'logout']);
  * Routes API Jawaban
  */
 
-Route::prefix('jawaban-hafalan')->group(function () {
-    // List all jawaban hafalan
-    Route::get('/', [JawabanHafalanController::class, 'apiIndex']);
-    // Show form create
-    Route::get('/create/{tugas_hafalan_id}', [JawabanHafalanController::class, 'create']);
-    // Get a specific jawaban hafalan
-    Route::get('/{id}', [JawabanHafalanController::class, 'apiShow']);
-    // Create a new jawaban hafalan
-    Route::post('/', [JawabanHafalanController::class, 'apiStore']);
-    // Update a jawaban hafalan
-    Route::put('/{id}', [JawabanHafalanController::class, 'apiUpdate']);
-    Route::patch('/{id}', [JawabanHafalanController::class, 'apiUpdate']);
-    // Delete a jawaban hafalan
-    Route::delete('/{id}', [JawabanHafalanController::class, 'apiDestroy']);
-    // Get jawaban hafalan by tugas hafalan ID
-    Route::get('/by-tugas/{tugas_hafalan_id}', [JawabanHafalanController::class, 'apiGetByTugasHafalan']);
-    // Get jawaban hafalan by user ID
-    Route::get('/by-user/{user_id}', [JawabanHafalanController::class, 'apiGetByUser']);
-});
+// Route::prefix('jawaban-hafalan')->group(function () {
+//     // List all jawaban hafalan
+//     Route::get('/', [JawabanHafalanController::class, 'apiIndex']);
+//     // Show form create
+//     Route::get('/create/{tugas_hafalan_id}', [JawabanHafalanController::class, 'create']);
+//     // Get a specific jawaban hafalan
+//     Route::get('/{id}', [JawabanHafalanController::class, 'apiShow']);
+//     // Create a new jawaban hafalan
+//     Route::post('/', [JawabanHafalanController::class, 'apiStore']);
+//     // Update a jawaban hafalan
+//     Route::put('/{id}', [JawabanHafalanController::class, 'apiUpdate']);
+//     Route::patch('/{id}', [JawabanHafalanController::class, 'apiUpdate']);
+//     // Delete a jawaban hafalan
+//     Route::delete('/{id}', [JawabanHafalanController::class, 'apiDestroy']);
+//     // Get jawaban hafalan by tugas hafalan ID
+//     Route::get('/by-tugas/{tugas_hafalan_id}', [JawabanHafalanController::class, 'apiGetByTugasHafalan']);
+//     // Get jawaban hafalan by user ID
+//     Route::get('/by-user/{user_id}', [JawabanHafalanController::class, 'apiGetByUser']);
+// });

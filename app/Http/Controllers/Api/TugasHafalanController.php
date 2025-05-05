@@ -17,7 +17,7 @@ class TugasHafalanController extends Controller
      */
     public function index(Request $request)
     {
-        $tugasHafalans = TugasHafalan::paginate();
+        $tugasHafalans = TugasHafalan::all();
 
         return TugasHafalanResource::collection($tugasHafalans);
     }
