@@ -18,7 +18,7 @@ class TugasGrammarController extends Controller
      */
     public function index(Request $request): View
     {
-        $tugasGrammars = TugasGrammar::with('grammar')->paginate();
+        $tugasGrammars = TugasGrammar::with('detailGrammar')->paginate();
 
         return view('admin.detail-grammar.tugas-grammar.index', compact('tugasGrammars'))
             ->with('i', ($request->input('page', 1) - 1) * $tugasGrammars->perPage());
