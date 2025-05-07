@@ -6,22 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 use Laravel\Sanctum\HasApiTokens;
 
 /**
- * Class TugasFrasa
+ * Class TugasTense
  *
  * @property $id
- * @property $frasa_id
+ * @property $tenses_id
  * @property $kkm
  * @property $body_questions
  * @property $created_at
  * @property $updated_at
  *
- * @property Frasa $frasa
- * @property SpeakeasyEnglish.jawabanFrasa[] $speakeasyEnglish.jawabanFrasas
+ * @property Tense $tense
+ * @property SpeakeasyEnglish.jawabanTense[] $speakeasyEnglish.jawabanTenses
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class TugasFrasa extends Model
+class TugasTense extends Model
 {
+
     use HasApiTokens;
 
     protected $perPage = 20;
@@ -31,22 +32,22 @@ class TugasFrasa extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['frasa_id', 'kkm', 'body_questions'];
+    protected $fillable = ['tenses_id', 'kkm', 'body_questions'];
 
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function frasa()
+    public function tense()
     {
-        return $this->belongsTo(\App\Models\Frasa::class, 'frasa_id', 'id');
+        return $this->belongsTo(\App\Models\DetailTense::class, 'tenses_id', 'id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function jawabanFrasas()
+    public function jawabanTenses()
     {
-        return $this->hasMany(\App\Models\jawabanFrasa::class, 'id', 'tugas_frasa_id');
+        return $this->hasMany(\App\Models\jawabanTense::class, 'id', 'tugas_tenses_id');
     }
 }

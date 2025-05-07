@@ -1,7 +1,7 @@
 @extends('admin.templates.header')
 
 @section('template_title')
-    {{ $jawabanHafalan->name ?? __('Show') . ' ' . __('Jawaban Hafalan') }}
+    {{ $jawabanTense->name ?? __('Show') . ' ' . __('Jawaban Tenses') }}
 @endsection
 
 @section('content')
@@ -14,7 +14,7 @@
                             <span class="card-title">{{ __('Show') }} Detail Jawaban Hafalan</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary btn-sm" href="{{ route('jawaban.hafalan.index') }}">
+                            <a class="btn btn-primary btn-sm" href="{{ route('jawaban.tenses.index') }}">
                                 {{ __('Back') }}</a>
                         </div>
                     </div>
@@ -24,30 +24,30 @@
                             <thead>
                                 <tr>
                                     <th>Nama</th>
-                                    <td>{{ $jawabanHafalan->user->name }}</td>
+                                    <td>{{ $jawabanTense->user->name }}</td>
                                 </tr>
                                 <tr>
                                     <th>Questions</th>
-                                    <td>{!! $jawabanHafalan->tugasHafalan->body_questions !!}</td>
+                                    <td>{!! $jawabanTense->tugasTense->body_questions !!}</td>
                                 </tr>
                                 <tr>
                                     <th>Answers</th>
-                                    <td>{{ $jawabanHafalan->body_answers }}</td>
+                                    <td>{{ $jawabanTense->body_answers }}</td>
                                 </tr>
                                 <tr>
                                     <th>Nilai</th>
                                     <td>
-                                        <form action="{{ route('jawaban.hafalan.update', $jawabanHafalan->id) }}"
+                                        <form action="{{ route('jawaban.tenses.update', $jawabanTense->id) }}"
                                             method="POST" role="form" enctype="multipart/form-data">
                                             @csrf
                                             @method('PUT')
                                             <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-                                            <input type="hidden" name="tugas_hafalan_id"
-                                                value="{{ $jawabanHafalan->tugas_hafalan_id }}">
+                                            <input type="hidden" name="tugas_tenses_id"
+                                                value="{{ $jawabanTense->tugas_tenses_id }}">
                                             <input type="hidden" name="body_answers" id="body_answer"
-                                                value="{{ old('body_answers', $jawabanHafalan?->body_answers) }}">
+                                                value="{{ old('body_answers', $jawabanTense?->body_answers) }}">
                                             <input type="number" name="nilai"
-                                                value="{{ old('body_answers', $jawabanHafalan?->nilai) }}">
+                                                value="{{ old('body_answers', $jawabanTense?->nilai) }}">
                                             <button type="submit"
                                                 class="btn btn-soft-secondary waves-effect material-shadow-none btn-sm">{{ __('Update Nilai') }}</button>
                                         </form>

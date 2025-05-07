@@ -63,6 +63,21 @@
                         data-key="t-hot">Done</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ url('admin/tugas-grammars') }}"
+                    class="nav-link {{ $current_url == 'admin/tugas-grammars' ? 'active' : '' }}">
+                    <i data-feather="users"></i>Tugas Grammar<span class="badge badge-pill bg-success"
+                        data-key="t-hot">Done</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url('admin/jawaban-grammars') }}"
+                    class="nav-link {{ $current_url == 'admin/jawaban-grammars' ? 'active' : '' }}">
+                    <i data-feather="users"></i>Jawaban Grammar<span class="badge badge-pill bg-success"
+                        data-key="t-hot">Done</span>
+                </a>
+            </li>
+
 
             <li class="menu-title"><span data-key="t-menu">Tenses</span></li>
 
@@ -70,10 +85,25 @@
             <li class="nav-item">
                 <a href="{{ url('admin/detail-tenses') }}"
                     class="nav-link {{ $current_url == 'admin/detail-tenses' ? 'active' : '' }}">
-                    <i data-feather="users"></i>Category Materi<span class="badge badge-pill bg-success"
+                    <i data-feather="users"></i>Tenses<span class="badge badge-pill bg-success"
                         data-key="t-hot">Done</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ url('admin/tugas-tenses') }}"
+                    class="nav-link {{ $current_url == 'admin/tugas-tenses' ? 'active' : '' }}">
+                    <i data-feather="users"></i>Tugas Tenses<span class="badge badge-pill bg-success"
+                        data-key="t-hot">Done</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url('admin/jawaban-tenses') }}"
+                    class="nav-link {{ $current_url == 'admin/jawaban-tenses' ? 'active' : '' }}">
+                    <i data-feather="users"></i>Jawaban Tenses<span class="badge badge-pill bg-success"
+                        data-key="t-hot">Done</span>
+                </a>
+            </li>
+
 
             <li class="menu-title"><span data-key="t-menu">Kosakata</span></li>
 
@@ -91,6 +121,21 @@
                         data-key="t-hot">Done</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ url('admin/tugas-kosakatas') }}"
+                    class="nav-link {{ $current_url == 'admin/tugas-kosakatas' ? 'active' : '' }}">
+                    <i data-feather="users"></i>Tugas Kosakata<span class="badge badge-pill bg-success"
+                        data-key="t-hot">Done</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url('admin/jawaban-kosakatas') }}"
+                    class="nav-link {{ $current_url == 'admin/jawaban-kosakatas' ? 'active' : '' }}">
+                    <i data-feather="users"></i>Jawaban Kosakata<span class="badge badge-pill bg-success"
+                        data-key="t-hot">Done</span>
+                </a>
+            </li>
+
             <li class="menu-title"><span data-key="t-menu">Frasa</span></li>
 
             <li class="nav-item">
@@ -140,26 +185,20 @@
                         data-key="t-hot">Done</span>
                 </a>
             </li>
-
-
-
-            <li class="menu-title"><span data-key="t-menu">Ujian</span></li>
-
             <li class="nav-item">
-                <a href="{{ url('admin/ujian') }}"
-                    class="nav-link {{ $current_url == 'admin/ujian' ? 'active' : '' }}">
-                    <i data-feather="users"></i>Ujian<span class="badge badge-pill bg-danger"
-                        data-key="t-hot">Pending</span>
+                <a href="{{ url('admin/tugas-idioms') }}"
+                    class="nav-link {{ $current_url == 'admin/tugas-idioms' ? 'active' : '' }}">
+                    <i data-feather="users"></i>Tugas Idiom<span class="badge badge-pill bg-success"
+                        data-key="t-hot">Done</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ url('admin/detail-ujian') }}"
-                    class="nav-link {{ $current_url == 'admin/detail-ujian' ? 'active' : '' }}">
-                    <i data-feather="users"></i>Category Materi<span class="badge badge-pill bg-danger"
-                        data-key="t-hot">Pending</span>
+                <a href="{{ url('admin/jawaban-idioms') }}"
+                    class="nav-link {{ $current_url == 'admin/jawaban-idioms' ? 'active' : '' }}">
+                    <i data-feather="users"></i>Jawaban Idiom<span class="badge badge-pill bg-success"
+                        data-key="t-hot">Done</span>
                 </a>
             </li>
-
 
             <li class="menu-title"><span data-key="t-menu">Menu Settings</span></li>
             <li class="nav-item">

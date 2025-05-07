@@ -3,29 +3,27 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Sanctum\HasApiTokens;
 
 /**
- * Class JawabanFrasa
+ * Class JawabanGrammar
  *
  * @property $id
  * @property $user_id
- * @property $tugas_frasa_id
+ * @property $tugas_grammars_id
  * @property $body_answers
  * @property $nilai
  * @property $status
  * @property $created_at
  * @property $updated_at
  *
- * @property TugasFrasa $tugasFrasa
+ * @property TugasGrammar $tugasGrammar
  * @property User $user
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class JawabanFrasa extends Model
+class JawabanGrammar extends Model
 {
-    use HasApiTokens;
-
+    
     protected $perPage = 20;
 
     /**
@@ -33,17 +31,17 @@ class JawabanFrasa extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['user_id', 'tugas_frasa_id', 'body_answers', 'nilai', 'status'];
+    protected $fillable = ['user_id', 'tugas_grammars_id', 'body_answers', 'nilai', 'status'];
 
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function tugasFrasa()
+    public function tugasGrammar()
     {
-        return $this->belongsTo(\App\Models\TugasFrasa::class, 'tugas_frasa_id', 'id');
+        return $this->belongsTo(\App\Models\TugasGrammar::class, 'tugas_grammars_id', 'id');
     }
-
+    
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -51,4 +49,5 @@ class JawabanFrasa extends Model
     {
         return $this->belongsTo(\App\Models\User::class, 'user_id', 'id');
     }
+    
 }

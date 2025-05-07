@@ -11,13 +11,23 @@ use App\Http\Controllers\Api\FrasaController;
 use App\Http\Controllers\Api\GrammarController;
 use App\Http\Controllers\Api\HafalanController;
 use App\Http\Controllers\Api\IdiomController;
+use App\Http\Controllers\Api\JawabanFrasaController;
+use App\Http\Controllers\Api\JawabanGrammarController;
 use App\Http\Controllers\Api\JawabanHafalanController;
+use App\Http\Controllers\Api\JawabanIdiomController;
+use App\Http\Controllers\Api\JawabanKosakataController;
+use App\Http\Controllers\Api\JawabanTenseController;
 use App\Http\Controllers\Api\KosakataController;
 use App\Http\Controllers\Api\MateriGrammarController;
 use App\Http\Controllers\Api\MateriKosakataController;
 use App\Http\Controllers\Api\MateriTenseController;
 use App\Http\Controllers\Api\TenseController;
+use App\Http\Controllers\Api\TugasFrasaController;
+use App\Http\Controllers\Api\TugasGrammarController;
 use App\Http\Controllers\Api\TugasHafalanController;
+use App\Http\Controllers\Api\TugasIdiomController;
+use App\Http\Controllers\Api\TugasKosakataController;
+use App\Http\Controllers\Api\TugasTenseController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Http\Request;
@@ -37,19 +47,42 @@ Route::get('jawaban-hafalan/user/{userId}', [JawabanHafalanController::class, 'g
 
 // Grammar
 Route::apiResource('grammars', GrammarController::class);
-Route::apiResource('tenses', TenseController::class);
-Route::apiResource('detail-tenses', DetailTenseController::class);
-Route::apiResource('materi-tenses', MateriTenseController::class);
+Route::apiResource('tugas-grammars', TugasGrammarController::class);
 Route::apiResource('detail-grammars', DetailGrammarController::class);
 Route::apiResource('materi-grammars', MateriGrammarController::class);
+Route::apiResource('jawaban-grammars', JawabanGrammarController::class);
+Route::get('jawaban-grammars/user/{userId}', [JawabanGrammarController::class, 'getByUserGrammars']);
+
+// Tenses
+Route::apiResource('tenses', TenseController::class);
+Route::apiResource('tugas-tenses', TugasTenseController::class);
+Route::apiResource('jawaban-tenses', JawabanTenseController::class);
+Route::get('jawaban-tenses/user/{userId}', [JawabanTenseController::class, 'getByUserTenses']);
+Route::apiResource('detail-tenses', DetailTenseController::class);
+Route::apiResource('materi-tenses', MateriTenseController::class);
+
+// Kosakatas
 Route::apiResource('kosakatas', KosakataController::class);
 Route::apiResource('materi-kosakatas', MateriKosakataController::class);
+Route::apiResource('tugas-kosakatas', TugasKosakataController::class);
+Route::apiResource('jawaban-kosakatas', JawabanKosakataController::class);
+Route::get('jawaban-kosakatas/user/{userId}', [JawabanKosakataController::class, 'getByUserKosakatas']);
+
 // frasa
 Route::apiResource('frasas', FrasaController::class);
 Route::apiResource('detail-frasas', DetailFrasaController::class);
+Route::apiResource('tugas-frasas', TugasFrasaController::class);
+Route::apiResource('jawaban-frasas', JawabanFrasaController::class);
+Route::get('jawaban-frasas/user/{userId}', [JawabanFrasaController::class, 'getByUserFrasas']);
+
+
 // idioms
 Route::apiResource('idioms', IdiomController::class);
 Route::apiResource('detail-idioms', DetailIdiomController::class);
+Route::apiResource('tugas-idioms', TugasIdiomController::class);
+Route::apiResource('jawaban-idioms', JawabanIdiomController::class);
+Route::get('jawaban-frasas/user/{userId}', [JawabanFrasaController::class, 'getByUserIdioms']);
+
 // Route::apiResource('login', AuthenticatedSessionController::class);
 // Route::apiResource('register', RegisteredUserController::class);
 // Route::post('register', [AuthController::class, 'register']);

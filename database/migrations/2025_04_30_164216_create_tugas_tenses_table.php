@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tugas_tenses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('tenses_id')->constrained('tenses')->onDelete('cascade');
+            $table->foreignId('tenses_id')->constrained('detail_tenses')->onDelete('cascade');
             $table->string('kkm');
             $table->text('body_questions');
             $table->timestamps();

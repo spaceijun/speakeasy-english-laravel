@@ -6,24 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 use Laravel\Sanctum\HasApiTokens;
 
 /**
- * Class JawabanFrasa
+ * Class JawabanKosakata
  *
  * @property $id
  * @property $user_id
- * @property $tugas_frasa_id
+ * @property $tugas_kosakatas_id
  * @property $body_answers
  * @property $nilai
  * @property $status
  * @property $created_at
  * @property $updated_at
  *
- * @property TugasFrasa $tugasFrasa
+ * @property TugasKosakata $tugasKosakata
  * @property User $user
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class JawabanFrasa extends Model
+class JawabanKosakata extends Model
 {
+
     use HasApiTokens;
 
     protected $perPage = 20;
@@ -33,15 +34,15 @@ class JawabanFrasa extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['user_id', 'tugas_frasa_id', 'body_answers', 'nilai', 'status'];
+    protected $fillable = ['user_id', 'tugas_kosakatas_id', 'body_answers', 'nilai', 'status'];
 
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function tugasFrasa()
+    public function tugasKosakata()
     {
-        return $this->belongsTo(\App\Models\TugasFrasa::class, 'tugas_frasa_id', 'id');
+        return $this->belongsTo(\App\Models\TugasKosakata::class, 'tugas_kosakatas_id', 'id');
     }
 
     /**
