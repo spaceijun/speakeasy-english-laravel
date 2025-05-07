@@ -49,7 +49,7 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
 
-                                            <td>{{ $tugasGrammar->grammar->name }}</td>
+                                            <td>{{ $tugasGrammar->detailGrammar->name }}</td>
                                             <td>{{ $tugasGrammar->kkm }}</td>
                                             <td>{!! $tugasGrammar->body_questions !!}</td>
 
