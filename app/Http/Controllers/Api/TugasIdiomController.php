@@ -17,7 +17,7 @@ class TugasIdiomController extends Controller
      */
     public function index(Request $request)
     {
-        $tugasIdioms = TugasIdiom::paginate();
+        $tugasIdioms = TugasIdiom::all();
 
         return TugasIdiomResource::collection($tugasIdioms);
     }

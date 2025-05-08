@@ -17,7 +17,7 @@ class JawabanGrammarController extends Controller
      */
     public function index(Request $request)
     {
-        $jawabanGrammars = JawabanGrammar::paginate();
+        $jawabanGrammars = JawabanGrammar::all();
 
         return JawabanGrammarResource::collection($jawabanGrammars);
     }
@@ -49,6 +49,17 @@ class JawabanGrammarController extends Controller
 
         return response()->json(new JawabanGrammarResource($jawabanGrammar));
     }
+
+    /**
+     * Display a listing of the resource filtered by user.
+     */
+    public function getByUserGrammars(Request $request, $userId): JsonResponse
+    {
+        $jawabanGrammars = JawabanGrammar::where('user_id', $userId)->get();
+
+        return response()->json(JawabanGrammarResource::collection($jawabanGrammars));
+    }
+
 
     /**
      * Delete the specified resource.

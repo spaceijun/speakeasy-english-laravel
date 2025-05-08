@@ -17,7 +17,7 @@ class JawabanTenseController extends Controller
      */
     public function index(Request $request)
     {
-        $jawabanTenses = JawabanTense::paginate();
+        $jawabanTenses = JawabanTense::all();
 
         return JawabanTenseResource::collection($jawabanTenses);
     }
@@ -48,6 +48,16 @@ class JawabanTenseController extends Controller
         $jawabanTense->update($request->validated());
 
         return response()->json(new JawabanTenseResource($jawabanTense));
+    }
+
+    /**
+     * Display a listing of the resource filtered by user.
+     */
+    public function getByUserTenses(Request $request, $userId): JsonResponse
+    {
+        $jawabanTense = JawabanTense::where('user_id', $userId)->get();
+
+        return response()->json(JawabanTenseResource::collection($jawabanTense));
     }
 
     /**

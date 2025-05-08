@@ -17,7 +17,7 @@ class TugasKosakataController extends Controller
      */
     public function index(Request $request)
     {
-        $tugasKosakatas = TugasKosakata::paginate();
+        $tugasKosakatas = TugasKosakata::all();
 
         return TugasKosakataResource::collection($tugasKosakatas);
     }

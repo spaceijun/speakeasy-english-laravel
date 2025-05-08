@@ -17,7 +17,7 @@ class JawabanFrasaController extends Controller
      */
     public function index(Request $request)
     {
-        $jawabanFrasas = JawabanFrasa::paginate();
+        $jawabanFrasas = JawabanFrasa::all();
 
         return JawabanFrasaResource::collection($jawabanFrasas);
     }
@@ -48,6 +48,16 @@ class JawabanFrasaController extends Controller
         $jawabanFrasa->update($request->validated());
 
         return response()->json(new JawabanFrasaResource($jawabanFrasa));
+    }
+
+    /**
+     * Display a listing of the resource filtered by user.
+     */
+    public function getByUserFrasas(Request $request, $userId): JsonResponse
+    {
+        $jawabanFrasas = JawabanFrasa::where('user_id', $userId)->get();
+
+        return response()->json(JawabanFrasaResource::collection($jawabanFrasas));
     }
 
     /**

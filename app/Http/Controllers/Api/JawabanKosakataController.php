@@ -17,7 +17,7 @@ class JawabanKosakataController extends Controller
      */
     public function index(Request $request)
     {
-        $jawabanKosakatas = JawabanKosakata::paginate();
+        $jawabanKosakatas = JawabanKosakata::all();
 
         return JawabanKosakataResource::collection($jawabanKosakatas);
     }
@@ -48,6 +48,16 @@ class JawabanKosakataController extends Controller
         $jawabanKosakata->update($request->validated());
 
         return response()->json(new JawabanKosakataResource($jawabanKosakata));
+    }
+
+    /**
+     * Display a listing of the resource filtered by user.
+     */
+    public function getByUserKosakatas(Request $request, $userId): JsonResponse
+    {
+        $jawabanKosakata = JawabanKosakata::where('user_id', $userId)->get();
+
+        return response()->json(JawabanKosakataResource::collection($jawabanKosakata));
     }
 
     /**

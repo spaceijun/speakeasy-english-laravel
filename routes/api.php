@@ -81,7 +81,7 @@ Route::apiResource('idioms', IdiomController::class);
 Route::apiResource('detail-idioms', DetailIdiomController::class);
 Route::apiResource('tugas-idioms', TugasIdiomController::class);
 Route::apiResource('jawaban-idioms', JawabanIdiomController::class);
-Route::get('jawaban-frasas/user/{userId}', [JawabanFrasaController::class, 'getByUserIdioms']);
+Route::get('jawaban-idioms/user/{userId}', [JawabanIdiomController::class, 'getByUserIdioms']);
 
 // Route::apiResource('login', AuthenticatedSessionController::class);
 // Route::apiResource('register', RegisteredUserController::class);

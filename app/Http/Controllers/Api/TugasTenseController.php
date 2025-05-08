@@ -17,7 +17,7 @@ class TugasTenseController extends Controller
      */
     public function index(Request $request)
     {
-        $tugasTenses = TugasTense::paginate();
+        $tugasTenses = TugasTense::all();
 
         return TugasTenseResource::collection($tugasTenses);
     }

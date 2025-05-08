@@ -17,7 +17,7 @@ class JawabanIdiomController extends Controller
      */
     public function index(Request $request)
     {
-        $jawabanIdioms = JawabanIdiom::paginate();
+        $jawabanIdioms = JawabanIdiom::all();
 
         return JawabanIdiomResource::collection($jawabanIdioms);
     }
@@ -49,6 +49,17 @@ class JawabanIdiomController extends Controller
 
         return response()->json(new JawabanIdiomResource($jawabanIdiom));
     }
+
+    /**
+     * Display a listing of the resource filtered by user.
+     */
+    public function getByUserIdioms(Request $request, $userId): JsonResponse
+    {
+        $jawabanIdioms = JawabanIdiom::where('user_id', $userId)->get();
+
+        return response()->json(JawabanIdiomResource::collection($jawabanIdioms));
+    }
+
 
     /**
      * Delete the specified resource.

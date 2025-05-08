@@ -17,7 +17,7 @@ class TugasGrammarController extends Controller
      */
     public function index(Request $request)
     {
-        $tugasGrammars = TugasGrammar::paginate();
+        $tugasGrammars = TugasGrammar::all();
 
         return TugasGrammarResource::collection($tugasGrammars);
     }

@@ -17,7 +17,7 @@ class TugasFrasaController extends Controller
      */
     public function index(Request $request)
     {
-        $tugasFrasas = TugasFrasa::paginate();
+        $tugasFrasas = TugasFrasa::all();
 
         return TugasFrasaResource::collection($tugasFrasas);
     }
