@@ -30,6 +30,7 @@ use App\Http\Controllers\Api\TugasKosakataController;
 use App\Http\Controllers\Api\TugasTenseController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\MateriGrammarController as ControllersMateriGrammarController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -49,7 +50,7 @@ Route::get('jawaban-hafalan/user/{userId}', [JawabanHafalanController::class, 'g
 // Grammar
 Route::apiResource('grammars', GrammarController::class);
 Route::apiResource('tugas-grammars', TugasGrammarController::class);
-Route::get('grammars/{grammarId}/details', [DetailGrammarController::class, 'getByGrammarId']);
+Route::get('grammars/{grammarId}/details', [MateriGrammarController::class, 'getByGrammarId']);
 Route::apiResource('detail-grammars', DetailGrammarController::class);
 Route::apiResource('materi-grammars', MateriGrammarController::class);
 Route::apiResource('jawaban-grammars', JawabanGrammarController::class);

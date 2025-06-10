@@ -50,22 +50,6 @@ class DetailGrammarController extends Controller
         return response()->json(new DetailGrammarResource($detailGrammar));
     }
 
-    /**
-     * Get detail grammar by specific grammar_id
-     */
-    public function getByGrammarId($grammarId): JsonResponse
-    {
-        $detailGrammars = DetailGrammar::where('detailgram_id', $grammarId)->get();
-
-        if ($detailGrammars->isEmpty()) {
-            return response()->json([
-                'message' => 'No detail grammar found for detailgram_id: ' . $grammarId
-            ], 404);
-        }
-
-        return response()->json(DetailGrammarResource::collection($detailGrammars));
-    }
-
 
     /**
      * Delete the specified resource.

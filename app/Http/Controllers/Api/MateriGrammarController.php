@@ -51,6 +51,23 @@ class MateriGrammarController extends Controller
     }
 
     /**
+     * Get detail grammar by specific detailgram_id
+     */
+    public function getByGrammarId($grammarId): JsonResponse
+    {
+        $detailGrammars = MateriGrammar::where('detailgram_id', $grammarId)->get();
+
+        if ($detailGrammars->isEmpty()) {
+            return response()->json([
+                'message' => 'No detail grammar found for detailgram_id: ' . $grammarId
+            ], 404);
+        }
+
+        return response()->json(MateriGrammarResource::collection($detailGrammars));
+    }
+
+
+    /**
      * Delete the specified resource.
      */
     public function destroy(MateriGrammar $materiGrammar): Response
