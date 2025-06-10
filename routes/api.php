@@ -49,6 +49,7 @@ Route::get('jawaban-hafalan/user/{userId}', [JawabanHafalanController::class, 'g
 // Grammar
 Route::apiResource('grammars', GrammarController::class);
 Route::apiResource('tugas-grammars', TugasGrammarController::class);
+Route::get('grammars/{grammarId}/details', [DetailGrammarController::class, 'getByGrammarId']);
 Route::apiResource('detail-grammars', DetailGrammarController::class);
 Route::apiResource('materi-grammars', MateriGrammarController::class);
 Route::apiResource('jawaban-grammars', JawabanGrammarController::class);
