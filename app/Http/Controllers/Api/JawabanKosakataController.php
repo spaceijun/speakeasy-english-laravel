@@ -53,12 +53,19 @@ class JawabanKosakataController extends Controller
     /**
      * Display a listing of the resource filtered by user.
      */
-    public function getByUserKosakatas(Request $request, $userId): JsonResponse
+    public function getByUser($userId): JsonResponse
     {
-        $jawabanKosakata = JawabanKosakata::where('user_id', $userId)->get();
+        $jawabanKosakatas = JawabanKosakata::where('user_id', $userId)->get();
 
-        return response()->json(JawabanKosakataResource::collection($jawabanKosakata));
+        if ($jawabanKosakatas->isEmpty()) {
+            return response()->json([
+                'message' => 'No jawaban kosakata found for user_id: ' . $userId
+            ], 404);
+        }
+
+        return response()->json(JawabanKosakataResource::collection($jawabanKosakatas));
     }
+
 
     /**
      * Delete the specified resource.

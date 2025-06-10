@@ -45,7 +45,7 @@ Route::get('hafalan/{hafalanId}/details', [DetailHafalanController::class, 'getB
 Route::apiResource('hafalans', HafalanController::class);
 Route::apiResource('tugas-hafalans', TugasHafalanController::class);
 Route::apiResource('jawaban-hafalans', JawabanHafalanController::class);
-Route::get('jawaban-hafalan/user/{userId}', [JawabanHafalanController::class, 'getByUser']);
+Route::get('jawaban-hafalan/{userId}/details', [JawabanHafalanController::class, 'getByUser']);
 
 // Grammar
 Route::apiResource('grammars', GrammarController::class);
@@ -54,13 +54,13 @@ Route::get('grammars/{grammarId}/details', [MateriGrammarController::class, 'get
 Route::apiResource('detail-grammars', DetailGrammarController::class);
 Route::apiResource('materi-grammars', MateriGrammarController::class);
 Route::apiResource('jawaban-grammars', JawabanGrammarController::class);
-Route::get('jawaban-grammars/user/{userId}', [JawabanGrammarController::class, 'getByUserGrammars']);
+Route::get('jawaban-grammar/{userId}/details', [JawabanGrammarController::class, 'getByUser']);
 
 // Tenses
 Route::apiResource('tenses', TenseController::class);
 Route::apiResource('tugas-tenses', TugasTenseController::class);
 Route::apiResource('jawaban-tenses', JawabanTenseController::class);
-Route::get('jawaban-tenses/user/{userId}', [JawabanTenseController::class, 'getByUserTenses']);
+Route::get('jawaban-tenses/{userId}/details', [JawabanTenseController::class, 'getByUser']);
 Route::apiResource('detail-tenses', DetailTenseController::class);
 Route::apiResource('materi-tenses', MateriTenseController::class);
 
@@ -69,14 +69,14 @@ Route::apiResource('kosakatas', KosakataController::class);
 Route::apiResource('materi-kosakatas', MateriKosakataController::class);
 Route::apiResource('tugas-kosakatas', TugasKosakataController::class);
 Route::apiResource('jawaban-kosakatas', JawabanKosakataController::class);
-Route::get('jawaban-kosakatas/user/{userId}', [JawabanKosakataController::class, 'getByUserKosakatas']);
+Route::get('jawaban-kosakatas/{userId}/details', [JawabanKosakataController::class, 'getByUser']);
 
 // frasa
 Route::apiResource('frasas', FrasaController::class);
 Route::apiResource('detail-frasas', DetailFrasaController::class);
 Route::apiResource('tugas-frasas', TugasFrasaController::class);
 Route::apiResource('jawaban-frasas', JawabanFrasaController::class);
-Route::get('jawaban-frasas/user/{userId}', [JawabanFrasaController::class, 'getByUserFrasas']);
+Route::get('jawaban-frasas/{userId}/details', [JawabanFrasaController::class, 'getByUser']);
 
 
 // idioms
@@ -84,7 +84,7 @@ Route::apiResource('idioms', IdiomController::class);
 Route::apiResource('detail-idioms', DetailIdiomController::class);
 Route::apiResource('tugas-idioms', TugasIdiomController::class);
 Route::apiResource('jawaban-idioms', JawabanIdiomController::class);
-Route::get('jawaban-idioms/user/{userId}', [JawabanIdiomController::class, 'getByUserIdioms']);
+Route::get('jawaban-idioms/{userId}/details', [JawabanIdiomController::class, 'getByUser']);
 
 // Route::apiResource('login', AuthenticatedSessionController::class);
 // Route::apiResource('register', RegisteredUserController::class);

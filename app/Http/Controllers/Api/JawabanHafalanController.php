@@ -53,9 +53,15 @@ class JawabanHafalanController extends Controller
     /**
      * Display a listing of the resource filtered by user.
      */
-    public function getByUser(Request $request, $userId): JsonResponse
+    public function getByUser($userId): JsonResponse
     {
         $jawabanHafalans = JawabanHafalan::where('user_id', $userId)->get();
+
+        if ($jawabanHafalans->isEmpty()) {
+            return response()->json([
+                'message' => 'No jawaban hafalan found for user_id: ' . $userId
+            ], 404);
+        }
 
         return response()->json(JawabanHafalanResource::collection($jawabanHafalans));
     }

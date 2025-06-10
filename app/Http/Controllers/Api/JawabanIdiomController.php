@@ -53,12 +53,19 @@ class JawabanIdiomController extends Controller
     /**
      * Display a listing of the resource filtered by user.
      */
-    public function getByUserIdioms(Request $request, $userId): JsonResponse
+    public function getByUser($userId): JsonResponse
     {
         $jawabanIdioms = JawabanIdiom::where('user_id', $userId)->get();
 
+        if ($jawabanIdioms->isEmpty()) {
+            return response()->json([
+                'message' => 'No jawaban idiom found for user_id: ' . $userId
+            ], 404);
+        }
+
         return response()->json(JawabanIdiomResource::collection($jawabanIdioms));
     }
+
 
 
     /**

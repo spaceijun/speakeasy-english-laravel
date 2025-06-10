@@ -53,12 +53,19 @@ class JawabanFrasaController extends Controller
     /**
      * Display a listing of the resource filtered by user.
      */
-    public function getByUserFrasas(Request $request, $userId): JsonResponse
+    public function getByUser($userId): JsonResponse
     {
         $jawabanFrasas = JawabanFrasa::where('user_id', $userId)->get();
 
+        if ($jawabanFrasas->isEmpty()) {
+            return response()->json([
+                'message' => 'No jawaban frasa found for user_id: ' . $userId
+            ], 404);
+        }
+
         return response()->json(JawabanFrasaResource::collection($jawabanFrasas));
     }
+
 
     /**
      * Delete the specified resource.

@@ -53,12 +53,19 @@ class JawabanGrammarController extends Controller
     /**
      * Display a listing of the resource filtered by user.
      */
-    public function getByUserGrammars(Request $request, $userId): JsonResponse
+    public function getByUser($userId): JsonResponse
     {
         $jawabanGrammars = JawabanGrammar::where('user_id', $userId)->get();
 
+        if ($jawabanGrammars->isEmpty()) {
+            return response()->json([
+                'message' => 'No jawaban grammar found for user_id: ' . $userId
+            ], 404);
+        }
+
         return response()->json(JawabanGrammarResource::collection($jawabanGrammars));
     }
+
 
 
     /**

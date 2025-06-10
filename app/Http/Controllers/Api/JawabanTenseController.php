@@ -53,12 +53,19 @@ class JawabanTenseController extends Controller
     /**
      * Display a listing of the resource filtered by user.
      */
-    public function getByUserTenses(Request $request, $userId): JsonResponse
+    public function getByUser($userId): JsonResponse
     {
-        $jawabanTense = JawabanTense::where('user_id', $userId)->get();
+        $jawabanTenses = JawabanTense::where('user_id', $userId)->get();
 
-        return response()->json(JawabanTenseResource::collection($jawabanTense));
+        if ($jawabanTenses->isEmpty()) {
+            return response()->json([
+                'message' => 'No jawaban tense found for user_id: ' . $userId
+            ], 404);
+        }
+
+        return response()->json(JawabanTenseResource::collection($jawabanTenses));
     }
+
 
     /**
      * Delete the specified resource.
