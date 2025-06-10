@@ -40,6 +40,7 @@ use Illuminate\Support\Facades\Route;
 Route::apiResource('categories', CategoryController::class);
 // Hafalan
 Route::apiResource('detail-hafalans', DetailHafalanController::class);
+Route::get('hafalan/{hafalanId}/details', [DetailHafalanController::class, 'getByHafalanId']);
 Route::apiResource('hafalans', HafalanController::class);
 Route::apiResource('tugas-hafalans', TugasHafalanController::class);
 Route::apiResource('jawaban-hafalans', JawabanHafalanController::class);

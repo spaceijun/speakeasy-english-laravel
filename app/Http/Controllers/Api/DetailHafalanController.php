@@ -51,6 +51,22 @@ class DetailHafalanController extends Controller
     }
 
     /**
+     * Get detail hafalan by specific hafalan_id
+     */
+    public function getByHafalanId($hafalanId): JsonResponse
+    {
+        $detailHafalans = DetailHafalan::where('hafalan_id', $hafalanId)->get();
+
+        if ($detailHafalans->isEmpty()) {
+            return response()->json([
+                'message' => 'No detail hafalan found for hafalan_id: ' . $hafalanId
+            ], 404);
+        }
+
+        return response()->json(DetailHafalanResource::collection($detailHafalans));
+    }
+
+    /**
      * Delete the specified resource.
      */
     public function destroy(DetailHafalan $detailHafalan): Response
