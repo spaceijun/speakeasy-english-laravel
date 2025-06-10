@@ -41,7 +41,7 @@
                                             method="POST" role="form" enctype="multipart/form-data">
                                             @csrf
                                             @method('PUT')
-                                            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                                            <input type="hidden" name="user_id" value="{{ $jawabanTense->user_id }}">
                                             <input type="hidden" name="tugas_tenses_id"
                                                 value="{{ $jawabanTense->tugas_tenses_id }}">
                                             <input type="hidden" name="body_answers" id="body_answer"
