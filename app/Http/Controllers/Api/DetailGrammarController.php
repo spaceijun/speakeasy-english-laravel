@@ -55,11 +55,11 @@ class DetailGrammarController extends Controller
      */
     public function getByGrammarId($grammarId): JsonResponse
     {
-        $detailGrammars = DetailGrammar::where('grammar_id', $grammarId)->get();
+        $detailGrammars = DetailGrammar::where('detailgram_id', $grammarId)->get();
 
         if ($detailGrammars->isEmpty()) {
             return response()->json([
-                'message' => 'No detail grammar found for grammar_id: ' . $grammarId
+                'message' => 'No detail grammar found for detailgram_id: ' . $grammarId
             ], 404);
         }
 
