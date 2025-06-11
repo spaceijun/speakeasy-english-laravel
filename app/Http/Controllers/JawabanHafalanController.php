@@ -60,7 +60,7 @@ class JawabanHafalanController extends Controller
     {
         $jawabanHafalan = JawabanHafalan::find($id);
 
-        return view('jawaban.hafalan.edit', compact('jawabanHafalan'));
+        return view('admin.hafalan.jawaban-hafalan.edit', compact('jawabanHafalan'));
     }
 
     /**

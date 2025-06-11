@@ -70,6 +70,7 @@ Route::apiResource('materi-kosakatas', MateriKosakataController::class);
 Route::apiResource('tugas-kosakatas', TugasKosakataController::class);
 Route::apiResource('jawaban-kosakatas', JawabanKosakataController::class);
 Route::get('jawaban-kosakatas/{userId}/details', [JawabanKosakataController::class, 'getByUser']);
+// Route::get('/materi-kosakatas/name/{kosakatas_id}', [MateriKosakataController::class, 'getByName']);
 
 // frasa
 Route::apiResource('frasas', FrasaController::class);

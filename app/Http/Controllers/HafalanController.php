@@ -62,7 +62,7 @@ class HafalanController extends Controller
     {
         $hafalan = Hafalan::find($id);
 
-        return view('hafalan.show', compact('hafalan'));
+        return view('admin.hafalan.show', compact('hafalan'));
     }
 
     /**

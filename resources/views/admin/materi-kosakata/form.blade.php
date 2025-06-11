@@ -4,8 +4,8 @@
         <div class="form-group mb-2 mb20">
             <label for="kosakatas_id" class="form-label">{{ __('KosakataId') }}</label>
             <select name="kosakatas_id" class="form-control @error('kosakatas_id') is-invalid @enderror" id="kategori_id">
-                <option value="" disabled selected>Choose Hafalan</option>
-                @foreach ($availableMateriKosakata as $kosakata)
+                <option value="" disabled selected>Choose Kosakata</option>
+                @foreach ($kosakatas as $kosakata)
                     <option value="{{ $kosakata->id }}"
                         {{ old('kosakatas_id', $materiKosakatas->kosakatas_id ?? '') == $kosakata->id ? 'selected' : '' }}>
                         {{ $kosakata->name }}

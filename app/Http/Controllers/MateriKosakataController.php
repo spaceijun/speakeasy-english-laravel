@@ -31,11 +31,11 @@ class MateriKosakataController extends Controller
         $materiKosakata = new MateriKosakata();
         $kosakatas = Kosakata::all();
 
-        $selectedMateriKosakataId = MateriKosakata::pluck('kosakatas_id')->toArray();
-        $availableMateriKosakata = $kosakatas->whereNotIn('id', $selectedMateriKosakataId);
+        // $selectedMateriKosakataId = MateriKosakata::pluck('kosakatas_id')->toArray();
+        // $availableMateriKosakata = $kosakatas->whereNotIn('id', $selectedMateriKosakataId);
 
 
-        return view('admin.materi-kosakata.create', compact('materiKosakata', 'availableMateriKosakata'));
+        return view('admin.materi-kosakata.create', compact('materiKosakata', 'kosakatas'));
     }
 
     /**
@@ -65,8 +65,9 @@ class MateriKosakataController extends Controller
     public function edit($id): View
     {
         $materiKosakata = MateriKosakata::find($id);
+        $kosakatas = Kosakata::all();
 
-        return view('materi-kosakata.edit', compact('materiKosakata'));
+        return view('admin.materi-kosakata.edit', compact('materiKosakata', 'kosakatas'));
     }
 
     /**
