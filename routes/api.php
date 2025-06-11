@@ -28,6 +28,7 @@ use App\Http\Controllers\Api\TugasHafalanController;
 use App\Http\Controllers\Api\TugasIdiomController;
 use App\Http\Controllers\Api\TugasKosakataController;
 use App\Http\Controllers\Api\TugasTenseController;
+use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\MateriGrammarController as ControllersMateriGrammarController;
@@ -86,6 +87,9 @@ Route::apiResource('detail-idioms', DetailIdiomController::class);
 Route::apiResource('tugas-idioms', TugasIdiomController::class);
 Route::apiResource('jawaban-idioms', JawabanIdiomController::class);
 Route::get('jawaban-idioms/{userId}/details', [JawabanIdiomController::class, 'getByUser']);
+
+// user
+Route::apiResource('users', UserController::class);
 
 // Route::apiResource('login', AuthenticatedSessionController::class);
 // Route::apiResource('register', RegisteredUserController::class);
