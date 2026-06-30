@@ -62,8 +62,9 @@ class TugasTenseController extends Controller
     public function edit($id): View
     {
         $tugasTense = TugasTense::find($id);
+        $tenses = DetailTense::all();
 
-        return view('admin.detail-tense.tugas-tense.edit', compact('tugasTense'));
+        return view('admin.detail-tense.tugas-tense.edit', compact('tugasTense', 'tenses'));
     }
 
     /**

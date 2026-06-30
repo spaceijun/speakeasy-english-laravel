@@ -2,12 +2,12 @@
     <div class="col-md-12">
 
         <div class="form-group mb-2 mb20">
-            <label for="tenses_id" class="form-label">{{ __('tenses Id') }}</label>
-            <select name="tenses_id" class="form-control @error('hafalan_id') is-invalid @enderror" id="hafalan_id">
+            <label for="tenses_id" class="form-label">{{ __('Tenses') }}</label>
+            <select name="tenses_id" class="form-control @error('tenses_id') is-invalid @enderror" id="tenses_id">
                 <option value="" disabled selected>Choose Tenses</option>
                 @foreach ($tenses as $tense)
                     <option value="{{ $tense->id }}"
-                        {{ old('tenses_id', $detailtense->tenses_id ?? '') == $tense->id ? 'selected' : '' }}>
+                        {{ old('tenses_id', $tugasTense->tenses_id ?? '') == $tense->id ? 'selected' : '' }}>
                         {{ $tense->name }}
                     </option>
                 @endforeach
@@ -25,7 +25,7 @@
         <div class="form-group mb-2 mb20">
             <label for="body_questions" class="form-label">{{ __('Questions') }}</label>
             <textarea name="body_questions" class="form-control @error('body_questions') is-invalid @enderror"
-                id="body_questions_tenses" placeholder="Your Content is here" rows="5">{{ old('body_questions', $artikel->body_questions ?? '') }}</textarea>
+                id="body_questions_tenses" placeholder="Your Content is here" rows="5">{{ old('body_questions', $tugasTense->body_questions_html ?? '') }}</textarea>
             @error('body_questions')
                 <div class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></div>
             @enderror
