@@ -6,21 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-/**
- * Class TugasHafalan
- *
- * @property $id
- * @property $hafalan_id
- * @property $kkm
- * @property $body_questions
- * @property $created_at
- * @property $updated_at
- *
- * @property Hafalan $hafalan
- * @property English.jawabanHafalan[] $english.jawabanHafalans
- * @package App
- * @mixin \Illuminate\Database\Eloquent\Builder
- */
 class TugasHafalan extends Model
 {
 
@@ -28,25 +13,20 @@ class TugasHafalan extends Model
 
     protected $perPage = 20;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = ['hafalan_id', 'kkm', 'body_questions'];
 
+    protected $appends = ['body_questions_html'];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
+    public function getBodyQuestionsHtmlAttribute(): string
+    {
+        return $this->attributes['body_questions'] ?? '';
+    }
+
     public function hafalan()
     {
         return $this->belongsTo(\App\Models\Hafalan::class, 'hafalan_id', 'id');
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
     public function jawabanHafalans()
     {
         return $this->hasMany(\App\Models\jawabanHafalan::class, 'id', 'tugas_hafalan_id');
