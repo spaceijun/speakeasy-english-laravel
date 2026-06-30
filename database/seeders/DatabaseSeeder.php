@@ -2,10 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\DetailHafalan;
-use App\Models\Hafalan;
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,9 +11,47 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // Seed tables in correct order (respecting foreign key dependencies)
 
-        // Hafalan::factory(10)->create();
-        DetailHafalan::factory(10)->create();
+        // 1. Categories first (no dependencies)
+        $this->call([
+            CategorySeeder::class,
+        ]);
+
+        // 2. Main tables (depend on category)
+        $this->call([
+            HafalanSeeder::class,
+            GrammarSeeder::class,
+            TensesSeeder::class,
+            FrasaSeeder::class,
+            IdiomSeeder::class,
+            KosakataSeeder::class,
+        ]);
+
+        // 3. Detail tables (depend on main tables)
+        $this->call([
+            DetailHafalanSeeder::class,
+            DetailGrammarSeeder::class,
+            DetailTensesSeeder::class,
+            DetailFrasaSeeder::class,
+            DetailIdiomSeeder::class,
+        ]);
+
+        // 4. Materi tables (depend on detail tables)
+        $this->call([
+            MateriGrammarSeeder::class,
+            MateriKosakataSeeder::class,
+            MateriTensesSeeder::class,
+        ]);
+
+        // 5. Tugas tables (depend on main tables)
+        $this->call([
+            TugasHafalanSeeder::class,
+            TugasGrammarSeeder::class,
+            TugasTensesSeeder::class,
+            TugasKosakataSeeder::class,
+            TugasFrasaSeeder::class,
+            TugasIdiomSeeder::class,
+        ]);
     }
 }
