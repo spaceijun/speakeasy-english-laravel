@@ -18,7 +18,7 @@ class DetailHafalanFactory extends Factory
     public function definition(): array
     {
         return [
-            'hafalan_id' => Hafalan::inRandomOrder()->first()->id,
+            'hafalan_id' => Hafalan::inRandomOrder()->first()?->id ?? Hafalan::factory()->create()->id,
             'name' => $this->faker->word(),
             'description' => $this->faker->paragraph(3),
         ];
